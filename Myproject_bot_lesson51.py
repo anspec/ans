@@ -17,11 +17,11 @@
 # 2. /specific - Бот запрашивает пользователя ввести ключевое слово, поиск ведется по двум столбцам: название и комментарий.
 # - Управление рекомендациями:
 # - Возможность редактировать и удалять рекомендации. (команды в меню: /edit - редактировать, /del - удалить.)
-from array import ArrayType
 
 #Документация по pandas	https://pandas.pydata.org/docs/user_guide/index.html
 
 # Импорт необходимых библиотек
+from array import ArrayType
 import requests  # Для выполнения HTTP-запросов к API
 import logging  # Для настройки системы логирования
 import csv  # Для работы с CSV-файлами (чтение/запись)
@@ -66,33 +66,33 @@ DB_path = "comments.db"
 conn = sqlite3.connect("comments.db")
 cursor = conn.cursor()
 
-cursor.execute('''CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    dt_first DATATIME NOT NULL,     # дата и время когда зарегистрировался
-    comment TEXT 
-)
-''')
-cursor.execute('''CREATE TABLE IF NOT EXISTS comments (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER 
-    name TEXT NOT NULL,
-    comment TEXT NOT NULL, 
-    dt DATATIME NOT NULL,     # дата и время когда изменил запись
-)
-''')
-
-conn.commit()
-
 class Users():
     def __init__(self):
         cursor.execute('''CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             dt_first DATATIME NOT NULL,     # дата и время когда зарегистрировался
-            comment TEXT 
-        )
+            comment TEXT,   # комментарий о себе 
+            #Для поиска рекомендаций:
+            max_comments int, # макс. количество рекомендаций при поиске (0 - все)
+            category_id int, # id категории при поиске (0 - все)
+            result TEXT, #last - последние, first - первые, random - рандомные
+            keyword TEXT #ключевые слова
+    )
         ''')
+        self.stru_find = {'user_id':0,'category_id':0,'random':False, keyword:str}
+
+    def is_exist_user(self, user_id:int) -> bool:
+        try:
+            cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+            row = cursor.fetchone()
+            if row:
+                return True
+            else:
+                return False
+        except e:
+            print(f"Ощибка в базе данных {e}")
+            return False
 
     def get_user_id(self, name:str) -> int:
         try:
@@ -107,6 +107,54 @@ class Users():
             print(f"Ощибка в базе данных {e}")
             return 0
 
+    def get_user_find_parametrs(self, user_id:int):
+        try:
+            cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+            row = cursor.fetchone()
+            if row:
+                return {'max_comments':max_comments,'category_id':category_id,'result':result,'keyword':keyword}
+            else:
+                return {}
+
+        except e:
+            print(f"Ощибка в базе данных {e}")
+            return  {}
+
+    def change_find_parametr(self, user_id:int, param:str, value:str) -> str:
+        if param in ("max_comments","category_id"):
+            try:
+                m = int( value )
+            except:
+                txt = "Введите число, а не строку!"
+                return txt
+        elif param == "result":
+            val = value.strip().lower()
+            if not (val in ('last','first''random')):
+                txt = "Введите last или first или random"
+                return txt
+
+        try:
+            txt = "Успех!"
+            if param == "max_comments":
+                cursor.execute("UPDATE Users SET max_comments = ? WHERE id = ?", (m, user_id,))
+                conn.commit()
+            elif param == "category_id":
+                cursor.execute("UPDATE Users SET category_id = ? WHERE id = ?", (m, user_id,))
+                conn.commit()
+            elif param == "result":
+                cursor.execute("UPDATE Users SET result = ? WHERE id = ?", (value.strip().lower(), user_id,))
+                conn.commit()
+            elif param == "keyword":
+                cursor.execute("UPDATE Users SET keyword = ? WHERE id = ?", (value, user_id,))
+                conn.commit()
+            else:
+                txt = f"{param} указан некорректно. Нужно указать max_comments или category_id или result или keyword"
+
+        except e:
+            txt = f"Проблема с базой данных {e}"
+
+        return txt
+
     def append_user(self, name:str, comment:str='') -> int:
         try:
             id = self.get_user_id(name)
@@ -114,8 +162,10 @@ class Users():
             if id != 0:
                 return id
             else:
-                cursor.execute("INSERT INTO users (name, comment, dt_first) VALUES (?, ?, ?)",
-                               (name, comment, datetime.now().isoformat(),))
+                cursor.execute("INSERT INTO users (name, comment, dt_first, max_comments, category_id, result, keyword ) "
+                               "VALUES (?, ?, ?, ?, ?, ?, ?)",
+                               (name, comment, datetime.now().isoformat(), 0, 0, 'random',''))
+                conn.commit()
                 id = cursor.lastrowid
                 return id
 
@@ -132,6 +182,8 @@ class Categories():
             parent_id INTEGER 
         )
         ''')
+        conn.commit()
+
     def is_exist_category(self, category_id:int) -> bool:
         try:
             cursor.execute("SELECT * FROM categories WHERE active=True and id = ?", (category_id,))
@@ -256,21 +308,173 @@ class Comments():
             dt DATATIME NOT NULL,     # дата и время когда изменил запись
         )
         ''')
-        self.stru_find = {'user_id':0,'category_id':0,'random':False, keyword:str}
+        conn.commit()
+
+        self.users = Users()
+        self.categories = Categories()
 
     def add_comment(self,user_id:int,category_id:int,name:str,comment:str):
         cursor.execute("INSERT INTO comments (user_id,category_id,name,comment,dt) VALUES (?, ?, ?, ?, ?)",
                        (user_id, category_id, name, comment, datetime.now().isoformat(), ))
+        conn.commit()
 
-    def find_your_comment(self,keyword:str):
-        pass
+    def find_comments(self,user_id:int,from_user_id:int=0) -> str:
 
+        if from_user_id > 0 and self.users.is_exist_user(from_user_id):
+            # Создаем временную таблицу для параметров
+            cursor.execute("""
+                DROP TABLE IF EXISTS temp_params_from_user;
+                CREATE TEMP TABLE temp_params_from_user (from_user_id INTEGER)
+                """)
+            cursor.execute("INSERT INTO temp_params_from_user (from_user_id) VALUES (?)", (from_user_id,))
 
-    def find_all_comment(self, keyword: str):
-        pass
+            # Используем временную таблицу в запросе
+            cursor.execute("""
+            CREATE VIEW IF NOT EXISTS from_comments AS
+            SELECT c.* FROM comments c, temp_params_from_user p WHERE c.user_id = p.from_user_id
+            """)
+        else:
+            cursor.execute("""
+             CREATE VIEW IF NOT EXISTS from_comments AS
+             SELECT c.* FROM comments c
+             """)
 
+        # получаем параметры поиска result и max_comments потом - category_id,keyword
+        params = self.users.get_user_find_parametrs(user_id)
+        max_comments = params.get('max_comments', 0)
+        result = params.get('result', 'random')
 
-#Инициализация файла логов
+        if max_comments > 0 and (result == 'first' or result == 'last'):
+            # Создаем временную таблицу для параметров
+            cursor.execute("""
+                DROP TABLE IF EXISTS temp_params_max_comments;
+                CREATE TEMP TABLE temp_params_max_comments (max_comments INTEGER)
+            """)
+
+            cursor.execute("INSERT INTO temp_params_max_comments (max_comments) VALUES (?)", (max_comments,))
+
+            # Используем временную таблицу в запросе
+            if result == 'first':
+              cursor.execute("""
+              CREATE VIEW IF NOT EXISTS max_comments AS
+              SELECT c.* FROM from_comments c, temp_params_max_comments p ORDER BY dt ASC LIMIT p.max_comments
+              """)
+            else:
+                cursor.execute("""
+                 CREATE VIEW IF NOT EXISTS max_comments AS
+                 SELECT c.* FROM from_comments c, temp_params_max_comments p ORDER BY dt DSC LIMIT p.max_comments
+                 """)
+
+        else:
+            cursor.execute("""
+               CREATE VIEW IF NOT EXISTS max_comments AS
+               SELECT c.* FROM from_comments c
+               """)
+
+        #получаем параметры поиска category_id
+        category_id = params.get('category_id',0)
+
+        if category_id > 0 :
+            #Получаем массив с подкатегориями
+            arr_category_id = self.categories.tree_categories(category_id)
+
+            # Создаем временную таблицу для параметров
+            cursor.execute("""
+                 DROP TABLE IF EXISTS temp_params_category_id;
+                 CREATE TEMP TABLE temp_params_category_id (category_id INTEGER)
+             """)
+            for cat_id in arr_category_id:
+                cursor.execute("INSERT INTO temp_params_category_id (category_id) VALUES (?)", (cat_id,))
+
+            # Используем временную таблицу в запросе
+            cursor.execute("""
+             CREATE VIEW IF NOT EXISTS category_id AS
+             SELECT c.* FROM max_comments c
+             INNER JOIN temp_params_category_id p ON c.category_id = p.category_id
+             """)
+        else:
+            cursor.execute("""
+              CREATE VIEW IF NOT EXISTS category_id AS
+              SELECT c.* FROM max_comments c
+              """)
+
+        # получаем параметры поиска keyword
+        keyword = params.get('keyword', '')
+        arr_keyword = []
+        arr_keyword1 = keyword.split()
+        for kword1 in arr_keyword1:
+            arr_keyword2 = kword1.split(';')
+            for kword2 in arr_keyword2:
+                arr_keyword3 = kword2.split(',')
+               for kword3 in arr_keyword3:
+                   if kword3.count()>0:
+                        arr_keyword.append(kword3)
+
+       if len(arr_keyword) > 0:
+            len_arr = len(arr_keyword)
+            # Создаем временную таблицу для параметров
+            cursor.execute("""
+                  DROP TABLE IF EXISTS temp_params_keyword;
+                  CREATE TEMP TABLE temp_params_keyword (keyword TEXT, len_arr INT)
+              """)
+            for kword in arr_keyword:
+                cursor.execute("INSERT INTO temp_params_category_id (keyword,len_arr) VALUES (?,?)", (kword,len_arr))
+
+            # Используем временную таблицу в запросе: вначале создаем временную таблицу с id тех рекомендаций,
+            # в которых есть все слова без разделителей ';',',',' '
+            cursor.execute("""
+               CREATE VIEW IF NOT EXISTS comments_id_kword AS
+               SELECT c.id AS id, COUNT(p.keyword) AS cnt, MAX(p.len_arr) AS len_arr FROM category_id c
+               INNER JOIN temp_params_keyword p ON (c.name LIKE '%' || p.keyword || '%') 
+                                                OR (c.comment LIKE '%' || p.keyword || '%')
+               GROUP BY
+                    c.id 
+               HAVING 
+                    HAVING COUNT(p.keyword) = MAX(p.len_arr)
+               """)
+            cursor.execute("""
+                CREATE VIEW IF NOT EXISTS comments_kword AS
+                SELECT c.* FROM category_id c
+                INNER JOIN comments_id_kword c_id ON (c.id = c_id.id)
+                 """)
+
+       else:
+            cursor.execute("""
+                CREATE VIEW IF NOT EXISTS comments_kword AS
+                SELECT c.* FROM category_id c
+                """)
+
+       cursor.execute("""
+           SELECT c.name AS name, c.comment AS comment, c.dt AS dat, usr.name AS user, usr.comment AS about_user, cat.name AS category FROM comments_kword c
+                 INNER JOIN user usr ON (c.user_id = usr.id)
+                 INNER JOIN categories cat ON (c.category_id = cat.id)
+            """)
+
+        rows = cursor.fetchall()
+
+        if max_comments > 0:
+            if max_comments > len(rows):
+                max_comments = len(rows)
+        else:
+            max_comments = len(rows)
+
+        i = 0
+        arr_int = []
+        while i < max_comments:
+            arr_int.append(i)
+            i = i + 1
+
+        #Осталось учесть случай когда result='random'
+        if result == 'random':
+          random.shuffle(arr_int)
+
+       txt = ""
+       for i in range(len(arr_int)):
+           txt = txt + rows[arr_int[i]] + "\n"
+
+       return txt
+
+ #Инициализация файла логов
 if not os.path.exists(COMMENT_LOG_PATH):
     # Создание нового файла с заголовками
     with open(COMMENT_LOG_PATH, 'w', newline='', encoding='utf-8') as file:
