@@ -76,8 +76,11 @@ COMMENT_LOG_PATH = "comments_log.csv"  # Путь к файлу логов ре�
 ADMIN_IDS = [my_telegram_id]  # Список ID администраторов бота
 #print(f"токен={TOKEN} OPENWEATHER_API_KEY = {OPENWEATHER_API_KEY} my_telegram_id ={my_telegram_id}")
 
-# Определение состояний для ConversationHandler
-WAIT_CATEGORY, WAIT_KEYWORD, SHOW_INFO = range(3)  # Состояния: ожидание категории, ключевой фразы и показ информации
+# Константы для состояния в ConversationHandler
+CHOOSE_ACTION, CHOOSE_CATEGORY = range(2)
+# Статусы для ConversationHandler
+SELECT_CATEGORY, CHOOSE_ACTION, ADD_SUBCATEGORY, ADD_CATEGORY = range(4)
+
 
 current_category_id = 0
 DB_path = "comments.db"
@@ -212,33 +215,36 @@ class Users():
     def __init__(self):
         cursor.execute('''CREATE TABLE IF NOT EXISTS users (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
+            telegram_id INTEGER UNIQUE NOT NULL,
             name TEXT NOT NULL,
-            dt_first DATATIME NOT NULL,     # дата и время когда зарегистрировался
-            comment TEXT,   # комментарий о себе 
-            #Для поиска рекомендаций:
-            max_comments int, # макс. количество рекомендаций при поиске (0 - все)
-            category_id int, # id категории при поиске (0 - все)
-            result TEXT, #last - последние, first - первые, random - рандомные
-            keyword TEXT #ключевые слова
-    )
-        ''')
+            dt_first DATETIME NOT NULL,         # дата и время когда зарегистрировался
+            dt_last DATETIME NOT NULL,          # дата и время последнего входа
+            comment TEXT,                       # комментарий
+            last_category_id INTEGER DEFAULT 0,  # последняя выбранная категория
+            last_keyword  TEXT DEFAULT '',       # последняя выбранная ключевая фраза
+            result TEXT DEFAULT 'random',        #last - последние, first - первые, random - рандомные
+            max_comments INTEGER DEFAULT 0,      # макс. количество рекомендаций при поиске (0 - все)
+       )''')
+
         self.categories = Categories()
 
-    def is_exist_user(self, user_id:int) -> bool:
-        try:
-            cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
-            row = cursor.fetchone()
-            if row:
-                return True
-            else:
-                return False
-        except e:
-            print(f"Ощибка в базе данных {e}")
-            return False
+    # # возвращает id юзера по его telegram_id. Если его не нашли - возвратит 0
+    # def id_user(self, telegram_id:int) -> bool:
+    #     try:
+    #         cursor.execute("SELECT * FROM users WHERE telegram_id = ?", (telegram_id,))
+    #         row = cursor.fetchone()
+    #         if row:
+    #             return row.id
+    #         else:
+    #             return 0
+    #     except e:
+    #         print(f"Ощибка в базе данных {e}")
+    #         return 0
 
-    def get_user_id(self, name:str) -> int:
+    # возвращает id юзера по его telegram_id. Если его не нашли - возвратит 0
+    def get_user_id(self, telegram_id:int) -> int:
         try:
-            cursor.execute("SELECT * FROM users WHERE name = ?", (name,))
+            cursor.execute("SELECT * FROM users WHERE telegram_id = ?", (telegram_id,))
             row = cursor.fetchone()
             if row:
                 return row.id
@@ -280,33 +286,33 @@ class Users():
             if param == "max_comments":
                 cursor.execute("UPDATE Users SET max_comments = ? WHERE id = ?", (m, user_id,))
                 conn.commit()
-            elif param == "category_id":
-                cursor.execute("UPDATE Users SET category_id = ? WHERE id = ?", (m, user_id,))
+            elif param == "last_category_id":
+                cursor.execute("UPDATE Users SET last_category_id = ? WHERE id = ?", (m, user_id,))
                 conn.commit()
             elif param == "result":
                 cursor.execute("UPDATE Users SET result = ? WHERE id = ?", (value.strip().lower(), user_id,))
                 conn.commit()
-            elif param == "keyword":
-                cursor.execute("UPDATE Users SET keyword = ? WHERE id = ?", (value, user_id,))
+            elif param == "last_keyword":
+                cursor.execute("UPDATE Users SET last_keyword = ? WHERE id = ?", (value, user_id,))
                 conn.commit()
             else:
-                txt = f"{param} указан некорректно. Нужно указать max_comments или category_id или result или keyword"
+                txt = f"{param} указан некорректно. Нужно указать max_comments или last_category_id или result или last_keyword"
 
         except e:
             txt = f"Проблема с базой данных {e}"
 
         return txt
 
-    def append_user(self, name:str, comment:str='') -> int:
+    def append_user(self, telegram_id:int, name:str) -> int:
         try:
-            id = self.get_user_id(name)
+            id = self.get_user_id(telegram_id)
 
             if id != 0:
                 return id
             else:
-                cursor.execute("INSERT INTO users (name, comment, dt_first, max_comments, category_id, result, keyword ) "
-                               "VALUES (?, ?, ?, ?, ?, ?, ?)",
-                               (name, comment, datetime.now().isoformat(), 0, 0, 'random',''))
+                cursor.execute("INSERT INTO users (telegram_id, name, dt_first, dt_last ) "
+                               "VALUES (?, ?, ?, ?)",
+                               (telegram_id, name, datetime.now().isoformat(), datetime.now().isoformat()))
                 conn.commit()
                 id = cursor.lastrowid
                 return id
@@ -356,7 +362,7 @@ class Comments():
              SELECT c.* FROM comments c
              """)
 
-        # получаем параметры поиска result и max_comments потом - category_id,keyword
+        # получаем параметры поиска result и max_comments потом - last_category_id,last_keyword
         params = self.users.get_user_find_parametrs(user_id)
         max_comments = params.get('max_comments', 0)
         result = params.get('result', 'random')
@@ -388,12 +394,12 @@ class Comments():
                SELECT c.* FROM from_comments c
                """)
 
-        #получаем параметры поиска category_id
-        category_id = params.get('category_id',0)
+        #получаем параметры поиска last_category_id
+        last_category_id = params.get('last_category_id',0)
 
-        if category_id > 0 :
+        if last_category_id > 0 :
             #Получаем массив с подкатегориями
-            arr_category_id = self.categories.tree_categories(category_id)
+            arr_category_id = self.categories.tree_categories(last_category_id)
 
             # Создаем временную таблицу для параметров
             cursor.execute("""
@@ -416,7 +422,7 @@ class Comments():
               """)
 
         # получаем параметры поиска keyword
-        keyword = params.get('keyword', '')
+        keyword = params.get('last_keyword', '')
         arr_keyword = []
         arr_keyword1 = keyword.split()
         for kword1 in arr_keyword1:
@@ -442,8 +448,7 @@ class Comments():
             cursor.execute("""
                CREATE VIEW IF NOT EXISTS comments_id_kword AS
                SELECT c.id AS id, COUNT(p.keyword) AS cnt, MAX(p.len_arr) AS len_arr FROM category_id c
-               INNER JOIN temp_params_keyword p ON (c.name LIKE '%' || p.keyword || '%') 
-                                                OR (c.comment LIKE '%' || p.keyword || '%')
+               INNER JOIN temp_params_keyword p ON (c.name || ' ' || c.comment LIKE '%' || p.keyword || '%') 
                GROUP BY
                     c.id 
                HAVING 
@@ -460,7 +465,7 @@ class Comments():
                 SELECT c.* FROM category_id c
                 """)
         cursor.execute("""
-              SELECT c.name AS name, c.comment AS comment, c.dt AS dat, usr.name AS user, usr.comment AS about_user, cat.name AS category FROM comments_kword c
+              SELECT c.user_id, c.category_id, c.name AS name, c.comment AS comment, c.dt AS dat, usr.name AS user, usr.comment AS about_user, cat.name AS category FROM comments_kword c
                     INNER JOIN user usr ON (c.user_id = usr.id)
                     INNER JOIN categories cat ON (c.category_id = cat.id)
                """)
@@ -483,7 +488,7 @@ class Comments():
 
         txt = ""
         for i in range(len(arr_int)):
-            txt = txt + rows[arr_int[i]] + "\n"
+            txt = txt + f"{rows[arr_int[i]]}" + "\n"
 
         return txt
 
@@ -523,224 +528,6 @@ def log_comment_request(user_id: int, username: str, category_id: int, keyword: 
     except Exception as e:
         # Обработка ошибок записи в лог
         logger.error(f"Ошибка записи в лог: {e}")
-
-
-# def create_reply_keyboard():
-#     """Создает клавиатуру с основными командами"""
-#     return ReplyKeyboardMarkup(
-#         [
-#             ["🌤️ Узнать погоду", "Каталог"],  # Первый ряд кнопок
-#             ['📞 Контакты', "Мой профиль"],  # Второй ряд
-#             # Специальные кнопки с запросом данных
-#             [KeyboardButton("Отправить контакт", request_contact=True),
-#              KeyboardButton("Отправить геолокацию", request_location=True)]
-#         ],
-#         resize_keyboard=True,  # Автоматическое изменение размера
-#         input_field_placeholder="Выберите действие"  # Подсказка в поле ввода
-#     )
-
-
-def create_main_menu_keyboard():
-    """Создает инлайн-клавиатуру главного меню"""
-    f"/categories – Актуальные категории\n"
-    f"/category – Работа с категорией\n"
-    f"/add – Добавить рекомендацию в категорию\n"
-    f"/find – Найти свою рекомендацию (для редактирования, удаления)\n"
-    f"/anything – Искать случайные рекомендации по категории\n"
-    f"/specific – Искать рекомендации по слову/фразе"
-
-    keyboard = [
-        [
-            # Кнопки первого ряда
-            #InlineKeyboardButton("🌤️ Настройка актуальной категории", callback_data='categories'),
-            #InlineKeyboardButton("🌤️ Актуальные категории", callback_data='categories'),
-            InlineKeyboardButton("🖥️ Редактировать категории", callback_data='category'),
-        ],
-        [
-            # Кнопки второго ряда
-            InlineKeyboardButton("🌤️ Редактировать рекомендации", callback_data='add_comment'),
-            #InlineKeyboardButton("🖥️ Найти свою рекомендацию", callback_data='find_comment'),
-        ],
-        [
-            # Кнопки третьего ряда
-            #InlineKeyboardButton("🌤️ Настройки для поиска", callback_data='categories'),
-            InlineKeyboardButton("🌤️ Поиск рекомендаций", callback_data='anything'),
- #           InlineKeyboardButton("🖥️ Искать рекомендации по слову/фразе", callback_data='specific'),
-        ],
-        [InlineKeyboardButton("❌ Закрыть", callback_data='close')]  # Кнопка закрытия
-    ]
-    return InlineKeyboardMarkup(keyboard)  # Возврат разметки клавиатуры
-
-#   Обработчики команд
-def start(update: Update, context: CallbackContext) -> None:
-    """Обработчик команды /start"""
-    user = update.effective_user  # Получение информации о пользователе
-    command_text = (
-                    #f"/categories – Актуальные категории\n"
-                    f"/param – Установка параметров\n"
-                    f"/add – Добавить рекомендацию в категорию\n"
-                    f"/find – Найти свою рекомендацию\n"
-                    f"/anything – Искать случайные рекомендации по категории\n"
-                    f"/ specific – Искать рекомендации по слову/фразе"
-    )
-
-    # # Приветственное сообщение с основной клавиатурой
-    update.message.reply_text(
-        f"Привет, {user.first_name}! Я твой бот по рекомендациям."
-        f"Ты можешь использовать кнопки ниже или команды:\n{command_text}")
-
-    ,
-        reply_markup=create_main_menu_keyboard()    #create_reply_keyboard()
-    )
-
-#Актуальные категории
-def categories(update: Update, context: CallbackContext) -> None:
-
-    if parent_id == None:
-        cursor.execute("SELECT id,name FROM categories WHERE active AND parent_id = ?", (parent_id))
-
-    row = cursor.fetchone()
-    if row:
-        zoo_id = row.zoo_id
-
-        cursor.execute("SELECT * FROM animals WHERE zoo_id = ?", (zoo_id))
-        result = cursor.fetchall()
-
-
-#Работа с категорией
-def category(update: Update, context: CallbackContext) -> None:
-
-
-#Добавить рекомендацию в категорию
-def add(update: Update, context: CallbackContext) -> None:
-
-#Найти свою рекомендацию
-def find(update: Update, context: CallbackContext) -> None:
-
-#Искать случайные рекомендации по категории
-def anything(update: Update, context: CallbackContext) -> None:
-
-#Искать рекомендации по слову/фразе
-def specific(update: Update, context: CallbackContext) -> None:
-
-
-
-
-def button_click(update: Update, context: CallbackContext) -> int:
-    """Обработчик нажатий инлайн-кнопок"""
-    query = update.callback_query  # Данные callback-запроса
-    query.answer()  # Подтверждение получения callback
-
-    # Обработка кнопки Актуальные категории
-    if query.data == 'categories':
-        show_currency_categories(query)  # Вызов функции показа курсов
-        return SHOW_INFO  # Переход в состояние показа информации
-
-    # Обработка кнопки погоды
-    elif query.data == "weather":
-        query.message.reply_text(
-            "Введите название города:",
-            reply_markup=ReplyKeyboardRemove()  # Удаление текущей клавиатуры
-        )
-        return WAIT_CITY  # Переход в состояние ожидания города
-
-    # Обработка кнопки курсов валют
-    elif query.data == 'currency':
-        show_currency_rates(query)  # Вызов функции показа курсов
-        return SHOW_INFO  # Переход в состояние показа информации
-
-    # Обработка кнопки возврата в меню
-    elif query.data == 'back_to_menu':
-        query.edit_message_text(
-            text="Меню работы с рекомендациями: ",
-            reply_markup=create_main_menu_keyboard()  # Обновление меню
-        )
-        return ConversationHandler.END  # Завершение диалога
-
-    # Обработка кнопки закрытия
-    elif query.data == 'close':
-        query.delete_message()  # Удаление сообщения с меню
-        return ConversationHandler.END  # Завершение диалога
-
-    return ConversationHandler.END  # Запасной вариант завершения
-
-
-def get_weather(update: Update, context: CallbackContext) -> int:
-    """Получает и отображает погоду для указанного города"""
-    city = update.message.text  # Извлечение города из сообщения
-    user = update.effective_user  # Информация о пользователе
-    user_id = user.id if user else 0  # ID пользователя (0 если не определен)
-    username = user.username or user.first_name or "Unknown"  # Имя пользователя
-
-    # Формирование URL для запроса погоды
-    url = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={OPENWEATHER_API_KEY}&units=metric&lang=ru"
-
-    try:
-        response = requests.get(url)  # Выполнение HTTP-запроса
-        data = response.json()  # Парсинг JSON-ответа
-
-        # Обработка успешного ответа
-        if response.status_code == 200:
-            # Логирование успешного запроса
-            log_weather_request(user_id, username, city, 'success')
-
-            # Формирование строки с информацией о погоде
-            weather_info = (
-                f"Погода в {city}:\n"
-                f"Температура: {data['main']['temp']} °C\n"
-                f"Состояние: {data['weather'][0]['description']}\n"
-                f"Влажность: {data['main']['humidity']} %\n"
-                f"Ветер: {data['wind']['speed']} м/с"
-            )
-            # Создание кнопки возврата
-            keyboard = [[InlineKeyboardButton("🔙 Назад в меню", callback_data="back_to_menu")]]
-            # Отправка информации о погоде
-            update.message.reply_text(weather_info, reply_markup=InlineKeyboardMarkup(keyboard))
-            return SHOW_INFO  # Переход в состояние показа информации
-
-        # Обработка ошибки "город не найден"
-        log_weather_request(user_id, username, city, 'city_not_found')
-        update.message.reply_text("Город не найден, попробуйте еще раз:")
-        return WAIT_CITY  # Повторный запрос города
-
-    except Exception as e:
-        # Обработка системных ошибок
-        log_weather_request(user_id, username, city, 'error')
-        logger.error(f"Ошибка при получении погоды: {e}")
-        update.message.reply_text("Произошла ошибка. Попробуйте позже")
-        return ConversationHandler.END  # Завершение диалога
-
-
-def show_currency_categories(query):
-    """Отображает текущие курсы валют"""
-    try:
-        response = requests.get(CBR_API_URL)  # Запрос к API ЦБ
-        data = response.json()  # Парсинг JSON-ответа
-        rates = data['Valute']  # Извлечение данных о валютах
-
-        # Формирование текста с курсами
-        text = (
-            f"Курсы ЦБ РФ:\n"
-            f"Доллар USA: {rates['USD']['Value']:.2f} ₽\n"
-            f"Евро: {rates['EUR']['Value']:.2f} ₽\n"
-            f"Юань: {rates['CNY']['Value']:.2f} ₽\n"
-        )
-        # Кнопка возврата в меню
-        keyboard = [[InlineKeyboardButton("🔙 Назад в меню", callback_data="back_to_menu")]]
-        # Обновление сообщения с курсами
-        query.edit_message_text(
-            text=text, reply_markup=InlineKeyboardMarkup(keyboard)
-        )
-    except Exception as e:
-        # Обработка ошибок получения курсов
-        logger.error(f"Ошибка при получении курса валют: {e}")
-        query.edit_message_text("Не удалось получить курсы валют")
-
-
-def cancel(update: Update, context: CallbackContext) -> int:
-    """Отмена текущего действия"""
-    update.message.reply_text("Действие отменено", reply_markup=create_reply_keyboard())
-    return ConversationHandler.END  # Завершение диалога
 
 
 def comments_stats(update: Update, context: CallbackContext):
@@ -867,200 +654,204 @@ def comments_stats(update: Update, context: CallbackContext):
         logger.error(f"Ошибка генерации статистики: {e}", exc_info=True)
         update.message.reply_text("⚠️ Произошла ошибка при формировании статистики")
 
+# Заполнение таблицы categories
+def initialize_categories():
+    categories = [
+        (1, 'Книги', 1, 0),
+        (2, 'Учебники', 1, 1),
+        (3, 'Справочники', 1, 2),
+        (4, 'Справочники по математике', 1, 3),
+        (5, 'Справочники по физике', 1, 3),
+        (6, 'Приключения', 1, 1),
+        (7, 'Современные авторы', 1, 6),
+        (8, 'Ретро', 1, 6),
+        (9, 'Фантастика', 1, 1),
+        (10, 'Детективы', 1, 1),
+        (11, 'Любовные истории', 1, 1),
+        (12, 'Стихи', 1, 1),
+        (13, 'Фильмы', 1, 0),
+        (14, 'Сериалы', 1, 13),
+        (15, 'Приключения', 1, 14),
+        (16, 'Путешествия', 1, 14),
+        (17, 'Любовные', 1, 14),
+        (18, 'Анимация', 1, 13),
+        (19, 'Зарубежные', 1, 13),
+        (20, 'Российская классика', 1, 13),
+        (21, 'Российские детективы', 1, 13),
+        (22, 'Мультфильмы', 1, 13)
+    ]
 
-def main():
-    """Основная функция инициализации и запуска бота"""
-    # TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-    # OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")  # API-ключ OpenWeatherMap
-    # my_telegram_id = os.getenv("MY_TELEGRAM_ID")
-    #
-    # print(f"токен={TOKEN} OPENWEATHER_API_KEY = {OPENWEATHER_API_KEY} my_telegram_id ={my_telegram_id}")
-    updater = Updater(TOKEN)  # Создание объекта Updater
-    dispatcher = updater.dispatcher  # Получение диспетчера
+    cursor.executemany('INSERT OR IGNORE INTO categories (id, name, active, parent_id) VALUES (?, ?, ?, ?)', categories)
+    conn.commit()
 
-    # Настройка обработчика диалогов для категорий
-    conv_handler = ConversationHandler(
-        entry_points=[CallbackQueryHandler(button_click, pattern='^category')],  # Точка входа
-        states={
-            CHOOSE_CATEGORY: [MessageHandler(Filters.text & ~Filters.command, get_category)],  # получение категории
-            EDIT_CATEGORY: [CallbackQueryHandler(button_click)]  # редактировать категорию
-            ADD_COMMENT: [CallbackQueryHandler(button_click)]  # редактировать рекомендацию
-            EDIT_KEYWORD: [CallbackQueryHandler(button_click)]  # редактировать ключевые слова
-            INFO_CATEGORIES: [CallbackQueryHandler(button_click)]
-            INFO_COMMENTS: [CallbackQueryHandler(button_click)]
-        },
-        fallbacks=[CommandHandler('cancel', cancel)],  # Обработчик отмены
-        allow_reentry=True  # Разрешение повторного входа
-    )
+    # Состояния для взаимодействия
+    STATE_ADD_CAT = "STATE_ADD_CAT"
+    STATE_FIND_CAT = "STATE_FIND_CAT"
+    STATE_ADD_COMMENT = "STATE_ADD_COMMENT"
+    STATE_FIND_COMMENT = "STATE_FIND_COMMENT"
+    STATE_EDIT_COMMENT = "STATE_EDIT_COMMENT"
 
-    # # Настройка обработчика диалогов для погоды
-    # conv_handler = ConversationHandler(
-    #     entry_points=[CallbackQueryHandler(button_click, pattern='^weather$')],  # Точка входа
-    #     states={
-    #         WAIT_CITY: [MessageHandler(Filters.text & ~Filters.command, get_weather)],  # Ожидание города
-    #         SHOW_INFO: [CallbackQueryHandler(button_click)]  # Показать информацию
-    #     },
-    #     fallbacks=[CommandHandler('cancel', cancel)],  # Обработчик отмены
-    #     allow_reentry=True  # Разрешение повторного входа
-    # )
+    # Хранилище временных данных
+    user_data = {}
 
-    # Регистрация обработчиков
-    dispatcher.add_handler(conv_handler)  # Диалоги рекомендаций
-    dispatcher.add_handler(CommandHandler("start", start))  # Команда /start
-    dispatcher.add_handler(CommandHandler("categories", categories))  # Команда /categories
-    dispatcher.add_handler(CommandHandler("category", category))  # Команда /category
-    dispatcher.add_handler(CommandHandler("add", add))  # Команда /add
-    dispatcher.add_handler(CommandHandler("find", find)) # Команда /find
-    dispatcher.add_handler(CommandHandler("anything", anything))  # Команда /anything
-    dispatcher.add_handler(CommandHandler("specific", specific))  # Команда /specific
+    # Команда /start
+    def start(update: Update, context: CallbackContext) -> None:
+        update.message.reply_text(
+            "Добро пожаловать! Вот доступные команды:\n"
+            "/add_cat - Добавить категорию\n"
+            "/find_cat - Найти категорию\n"
+            "/add - Добавить рекомендацию\n"
+            "/find - Найти рекомендации"
+        )
 
-    # Обработчики инлайн-кнопок
-    dispatcher.add_handler(CallbackQueryHandler(button_click, pattern='^(currency|back_to_menu|close)$'))
-    # Обработчик статистики
-    dispatcher.add_handler(CommandHandler("comments_stats", comments_stats))
+initialize_categories()
+comments = Comments()
 
-    updater.start_polling()  # Запуск бота в режиме опроса
-    logger.info("Бот запущен и готов к работе")  # Запись в лог
-    updater.idle()  # Бесконечный цикл до остановки
+# Обработчик команды /start
+def start(update: Update, context: CallbackContext):
+    user = update.effective_user
+    telegram_id = user.id
+    name = user.first_name
 
-###############################
-# Определяем этапы состояний для ConversationHandler
-MAIN, ADD, ADD_CHOOSE_CAT, ADD_COM, FIND, FIND_CHOOSE_CAT, FIND_ANY_COM, FIND_SPEC_COM, FIND_EDIT_KEY, FIND_COM, CTRL, CTRL_ID, CTRL_EDIT_COM, CTRL_DEL_COM = range(14)
+    # Проверяем, есть ли пользователь в базе
+    cursor.execute("SELECT * FROM users WHERE telegram_id = ?", (telegram_id,))
+    user_data = cursor.fetchone()
 
-# Функция для главного меню
-def main_menu(update: Update, context: CallbackContext):
-    reply_keyboard = [['/add', '/find', '/ctrl']]
+    if not user_data:
+        # Если пользователь впервые заходит в бота
+        dt_now = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        cursor.execute('INSERT INTO users (telegram_id, name, dt_first, dt_last) VALUES (?, ?, ?, ?)',
+                       (telegram_id, name, dt_now, dt_now))
+        conn.commit()
+        # update.message.reply_text(f"Добро пожаловать, {name}!")
+    else:
+        # Обновляем время последнего захода
+        cursor.execute('UPDATE users SET dt_last = ? WHERE telegram_id = ?', (datetime.now(), telegram_id))
+        conn.commit()
+
+        # last_category_id = user_data[5]
+        # if last_category_id:
+        #     cursor.execute('SELECT name FROM categories WHERE id = ?', (last_category_id,))
+        #     category_name = cursor.fetchone()[0]
+        #     update.message.reply_text(f"Привет, {name}! Последний раз вы заходили {user_data[4]}. "
+        #                               f"Ваша последняя выбранная категория: {category_name}.")
+        # else:
+        #     update.message.reply_text(f"Привет, {name}! Последний раз вы заходили {user_data[4]}. "
+        #                               f"У вас пока нет выбранной категории.")
+
+
     update.message.reply_text(
-        "Добро пожаловать в главное меню! Выберите команду:",
-        reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
+        f"Добро пожаловать, {name}! Вот доступные команды:\n"
+        "/add_cat - Добавить категорию\n"
+        "/find_cat - Найти категорию\n"
+        "/add - Добавить рекомендацию\n"
+        "/find - Найти рекомендации"
     )
-    return MAIN
 
-# Функции для команды /add
-def add(update: Update, context: CallbackContext):
-    update.message.reply_text(
-        "Введите категорию для новой рекомендации или /cancel для отмены:",
-        reply_markup=ReplyKeyboardRemove()
-    )
-    return ADD_CHOOSE_CAT
+# Команда /add_cat
+def add_cat(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text("Введите ID категории:")
 
-def add_choose_cat(update: Update, context: CallbackContext):
-    chosen_category = update.message.text
-    # Здесь можно добавить логику для обработки выбора категории
-    update.message.reply_text(f"Вы выбрали категорию: {chosen_category}. Теперь введите рекомендацию:")
-    return ADD_COM
+    # Сохраняем состояние
+    user_data[update.message.chat_id] = {"state": STATE_ADD_CAT}
 
-def add_com(update: Update, context: CallbackContext):
-    recommendation = update.message.text
-    # Логика для сохранения рекомендации
-    update.message.reply_text(f"Рекомендация '{recommendation}' сохранена! Возвращаемся в главное меню.")
-    return MAIN
+# Обработчик ввода ID категории для /add_cat
+def handle_add_cat(update: Update, context: CallbackContext) -> None:
+    chat_id = update.message.chat_id
+    state = user_data.get(chat_id, {}).get("state")
 
-# Функции для команды /find
-def find(update: Update, context: CallbackContext):
-    update.message.reply_text(
-        "Введите категорию для поиска или /cancel для отмены:",
-        reply_markup=ReplyKeyboardRemove()
-    )
-    return FIND_CHOOSE_CAT
+    if state == STATE_ADD_CAT:
+        try:
+            category_id = int(update.message.text)
+            cursor.execute("SELECT * FROM categories WHERE id = ?", (category_id,))
+            category = cursor.fetchone()
 
-def find_choose_cat(update: Update, context: CallbackContext):
-    chosen_category = update.message.text
-    reply_keyboard = [['/anything', '/specific']]
-    update.message.reply_text(
-        f"Вы выбрали категорию: {chosen_category}. Выберите действие:",
-        reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
-    )
-    return FIND_ANY_COM
+            if category:
+                # Формируем кнопки
+                keyboard = [
+                    [InlineKeyboardButton("Добавить подкатегорию", callback_data=f"add_subcat_{category_id}")],
+                    [InlineKeyboardButton("Добавить категорию", callback_data=f"add_cat_{category_id}")],
+                    [InlineKeyboardButton("Возврат", callback_data="return_add_cat")],
+                    [InlineKeyboardButton("Конец", callback_data="end")]
+                ]
+                reply_markup = InlineKeyboardMarkup(keyboard)
+                update.message.reply_text("Выберите действие:", reply_markup=reply_markup)
+            else:
+                update.message.reply_text("Категория с таким ID не найдена. Попробуйте снова.")
+        except ValueError:
+            update.message.reply_text("Введите корректный ID категории.")
 
-def find_any_com(update: Update, context: CallbackContext):
-    # Логика поиска рандомных рекомендаций
-    update.message.reply_text("Показаны рандомные рекомендации...")
-    return FIND_COM
+# Обработчик нажатий кнопок
+def button_handler(update: Update, context: CallbackContext) -> None:
+    query = update.callback_query
+    query.answer()
+    data = query.data
 
-def find_spec_com(update: Update, context: CallbackContext):
-    update.message.reply_text("Введите ключевые слова для поиска:")
-    return FIND_EDIT_KEY
+    if data.startswith("add_subcat_"):
+        category_id = int(data.split("_")[2])
+        query.edit_message_text(f"Введите имя новой подкатегории для категории c ID={category_id}:")
 
-def find_edit_key(update: Update, context: CallbackContext):
-    keywords = update.message.text
-    # Логика поиска по ключевым словам
-    update.message.reply_text(f"Результаты поиска по ключевым словам: {keywords}")
-    return FIND_COM
+        # Сохраняем состояние
+        user_data[query.message.chat_id] = {"state": "add_subcategory", "category_id": category_id}
 
-def find_com(update: Update, context: CallbackContext):
-    # Логика отображения результатов поиска
-    update.message.reply_text("Показаны результаты поиска...")
-    return FIND_CHOOSE_CAT
+    elif data.startswith("add_cat_"):
+        category_id = int(data.split("_")[2])
+        query.edit_message_text(f"Введите имя новой категории, смежной с категорией с ID={category_id}:")
 
-# Функции для команды /ctrl
-def ctrl(update: Update, context: CallbackContext):
-    update.message.reply_text("Введите ID вашей рекомендации для управления или /cancel для отмены:")
-    return CTRL_ID
+        # Сохраняем состояние
+        user_data[query.message.chat_id] = {"state": "add_category", "category_id": category_id}
 
-def ctrl_id(update: Update, context: CallbackContext):
-    recommendation_id = update.message.text
-    # Логика проверки ID рекомендации
-    reply_keyboard = [['/edit', '/del']]
-    update.message.reply_text(
-        f"Вы выбрали рекомендацию с ID: {recommendation_id}. Выберите действие:",
-        reply_markup=ReplyKeyboardMarkup(reply_keyboard, one_time_keyboard=True)
-    )
-    return CTRL_EDIT_COM
+    elif data == "return_add_cat":
+        add_cat(update.callback_query, context)
 
-def ctrl_edit_com(update: Update, context: CallbackContext):
-    # Логика для редактирования рекомендации
-    update.message.reply_text("Рекомендация отредактирована. Возвращаемся в главное меню.")
-    return MAIN
+    elif data == "end":
+        #query.edit_message_text("Возврат в главное меню. Введите /start для начала.")
+        start(update.callback_query, context)
 
-def ctrl_del_com(update: Update, context: CallbackContext):
-    # Логика для удаления рекомендации
-    update.message.reply_text("Рекомендация удалена. Возвращаемся в главное меню.")
-    return MAIN
+# Обработчик ввода имени подкатегории или категории
+def handle_subcategory_or_category_name(update: Update, context: CallbackContext) -> None:
+    chat_id = update.message.chat_id
+    state_data = user_data.get(chat_id, {})
 
-# Завершение диалога
-def cancel(update: Update, context: CallbackContext):
-    update.message.reply_text("Действие отменено. Возвращаемся в главное меню.", reply_markup=ReplyKeyboardRemove())
-    return MAIN
+    if state_data.get("state") == "add_subcategory":
+        category_id = state_data.get("category_id")
+        subcategory_name = update.message.text
 
-# Основная функция
-def main():
-    updater = Updater("YOUR_TOKEN_HERE")
+        cursor.execute("INSERT INTO categories (name, active, parent_id) VALUES (?, ?, ?)",
+                       (subcategory_name, True, category_id))
+        conn.commit()
+        update.message.reply_text(f"Подкатегория '{subcategory_name}' добавлена!")
+
+    elif state_data.get("state") == "add_category":
+        category_id = state_data.get("category_id")
+        category_name = update.message.text
+
+        cursor.execute("SELECT parent_id FROM categories WHERE id = ?", (category_id,))
+        parent_id = cursor.fetchone()[0]
+
+        cursor.execute("INSERT INTO categories (name, active, parent_id) VALUES (?, ?, ?)",
+                       (category_name, True, parent_id))
+        conn.commit()
+        update.message.reply_text(f"Категория '{category_name}' добавлена!")
+
+    # Сброс состояния
+    user_data[chat_id] = {}
+
+def main() -> None:
+    # Создаем бота
+    updater = Updater("YOUR_BOT_TOKEN")
+
+    # Регистрируем обработчики
     dispatcher = updater.dispatcher
+    dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("add_cat", add_cat))
+    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_add_cat))
+    dispatcher.add_handler(CallbackQueryHandler(button_handler))
+    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_subcategory_or_category_name))
 
-    conv_handler = ConversationHandler(
-        entry_points=[CommandHandler('start', main_menu)],
-        states={
-            MAIN: [
-                CommandHandler('add', add),
-                CommandHandler('find', find),
-                CommandHandler('ctrl', ctrl)
-            ],
-            ADD: [MessageHandler(Filters.text & ~Filters.command, add)],
-            ADD_CHOOSE_CAT: [MessageHandler(Filters.text & ~Filters.command, add_choose_cat)],
-            ADD_COM: [MessageHandler(Filters.text & ~Filters.command, add_com)],
-            FIND: [MessageHandler(Filters.text & ~Filters.command, find)],
-            FIND_CHOOSE_CAT: [
-                MessageHandler(Filters.text & ~Filters.command, find_choose_cat),
-                CommandHandler('anything', find_any_com),
-                CommandHandler('specific', find_spec_com)
-            ],
-            FIND_ANY_COM: [MessageHandler(Filters.text & ~Filters.command, find_any_com)],
-            FIND_SPEC_COM: [MessageHandler(Filters.text & ~Filters.command, find_spec_com)],
-            FIND_EDIT_KEY: [MessageHandler(Filters.text & ~Filters.command, find_edit_key)],
-            FIND_COM: [MessageHandler(Filters.text & ~Filters.command, find_com)],
-            CTRL: [MessageHandler(Filters.text & ~Filters.command, ctrl)],
-            CTRL_ID: [MessageHandler(Filters.text & ~Filters.command, ctrl_id)],
-            CTRL_EDIT_COM: [CommandHandler('edit', ctrl_edit_com)],
-            CTRL_DEL_COM: [CommandHandler('del', ctrl_del_com)],
-        },
-        fallbacks=[CommandHandler('cancel', cancel)]
-    )
-
-    dispatcher.add_handler(conv_handler)
-
+    # Запускаем бота
     updater.start_polling()
     updater.idle()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
