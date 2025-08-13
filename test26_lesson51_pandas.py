@@ -57,10 +57,6 @@ else:
                 f.seek(0, 0)
                 f.write('timestamp,user_id,username,city,status\n' + content)
 
-class cat
-
-
-
 def log_weather_request(user_id: int, username: str, city: str, status: str):
     """Записывает информацию о запросе погоды в CSV-лог"""
     try:
@@ -121,6 +117,16 @@ def create_main_menu_keyboard():
     ]
     return InlineKeyboardMarkup(keyboard)  # Возврат разметки клавиатуры
 
+def process_find_cat_keyword(update: Update, context: CallbackContext):
+    # Логика поиска категорий
+    category_id = 1  # Пример ID категории
+    parent_id = 0  # Пример родительского ID
+    update.message.reply_text(
+        f"Найдены категории по ключевому слову: {keyword}.",
+        reply_markup=generate_find_keyboard(category_id, parent_id)
+        )
+
+    return  FIND_CAT_ACTIONS
 
 def start(update: Update, context: CallbackContext) -> None:
     """Обработчик команды /start"""
@@ -394,13 +400,20 @@ def main():
         allow_reentry=True  # Разрешение повторного входа
     )
 
-    # Регистрация обработчиков
-    dispatcher.add_handler(conv_handler)  # Диалоги погоды
-    dispatcher.add_handler(CommandHandler("start", start))  # Команда /start
-    # Обработчики инлайн-кнопок
-    dispatcher.add_handler(CallbackQueryHandler(button_click, pattern='^(currency|back_to_menu|close)$'))
-    # Обработчик статистики
-    dispatcher.add_handler(CommandHandler("weather_stats", weather_stats))
+    # Регистрируем обработчики
+    updater.dispatcher.add_handler(CommandHandler('start', start))
+    updater.dispatcher.add_handler(CommandHandler('find_cat', find_cat))
+    updater.dispatcher.add_handler(CallbackQueryHandler(button_handler))
+    updater.dispatcher.add_handler(conv_handler)  # Добавляем ConversationHandler, если используется
+
+
+    # # Регистрация обработчиков
+    # dispatcher.add_handler(conv_handler)  # Диалоги погоды
+    # dispatcher.add_handler(CommandHandler("start", start))  # Команда /start
+    # # Обработчики инлайн-кнопок
+    # dispatcher.add_handler(CallbackQueryHandler(button_click, pattern='^(currency|back_to_menu|close)$'))
+    # # Обработчик статистики
+    # dispatcher.add_handler(CommandHandler("weather_stats", weather_stats))
 
     updater.start_polling()  # Запуск бота в режиме опроса
     logger.info("Бот запущен и готов к работе")  # Запись в лог

@@ -1,0 +1,723 @@
+timestamp,process,user_id,status,state,data,cat_id,comm_id,len_stack23T16:59:09.816913,0,Igor,start,START,start,0
+2025-07-23T16:59:11.645911,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T16:59:40.500930,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T17:00:52.126499,0,Igor,start,START,start,0
+2025-07-23T17:00:53.979497,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T17:02:41.759497,0,Igor,start,START,start,0
+2025-07-23T17:06:32.372276,0,Igor,start,START,start,0
+2025-07-23T17:07:51.618281,0,Igor,start,START,start,0
+2025-07-23T17:07:54.014272,0,Igor,"непонятная команда {'update_id': 78493621, 'message': {'text': '/find_cat', 'supergroup_chat_created': False, 'photo': [], 'message_id': 951, 'new_chat_members': [], 'delete_chat_photo': False, 'group_chat_created': False, 'date': 1753279673, 'channel_chat_created': False, 'new_chat_photo': [], 'entities': [{'length': 9, 'type': 'bot_command', 'offset': 0}], 'chat': {'type': 'private', 'first_name': 'Igor', 'id': 462609575, 'username': 'specigor', 'last_name': 'Pokotilo'}, 'caption_entities': [], 'from': {'id': 462609575, 'first_name': 'Igor', 'is_bot': False, 'language_code': 'ru', 'last_name': 'Pokotilo', 'username': 'specigor'}}}",START,unknown,
+2025-07-23T17:15:36.340473,0,Igor,start,START,start,0
+2025-07-23T17:15:39.338480,0,Igor,"непонятная команда {'update_id': 78493623, 'message': {'chat': {'type': 'private', 'username': 'specigor', 'id': 462609575, 'first_name': 'Igor', 'last_name': 'Pokotilo'}, 'text': '/find_cat', 'date': 1753280139, 'caption_entities': [], 'entities': [{'type': 'bot_command', 'length': 9, 'offset': 0}], 'channel_chat_created': False, 'delete_chat_photo': False, 'message_id': 956, 'photo': [], 'group_chat_created': False, 'supergroup_chat_created': False, 'new_chat_members': [], 'new_chat_photo': [], 'from': {'username': 'specigor', 'first_name': 'Igor', 'last_name': 'Pokotilo', 'id': 462609575, 'language_code': 'ru', 'is_bot': False}}}",START,unknown,
+2025-07-23T17:49:54.033063,0,Igor,start,START,start,0
+2025-07-23T17:49:55.998083,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:04:19.666683,0,Igor,start,START,start,0
+2025-07-23T18:04:21.796662,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:07:04.050683,0,Igor,start,START,start,0
+2025-07-23T18:07:05.755671,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:20:29.647870,0,Igor,start,START,start,0
+2025-07-23T18:20:31.201870,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:25:00.487874,0,Igor,start,START,start,0
+2025-07-23T18:25:02.315891,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:26:29.568664,0,Igor,start,START,start,0
+2025-07-23T18:26:31.222667,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:49:47.467608,0,Igor,start,START,start,0
+2025-07-23T18:49:49.257637,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T18:59:50.330616,0,Igor,start,START,start,0
+2025-07-23T18:59:52.442609,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:06:04.381636,0,Igor,start,START,start,0
+2025-07-23T19:06:06.526617,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:11:25.509636,0,Igor,start,START,start,0
+2025-07-23T19:11:28.122628,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:11:57.652608,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:17:06.583636,0,Igor,start,START,start,0
+2025-07-23T19:17:08.821618,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:17:34.491621,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:19:24.512929,0,Igor,start,START,start,0
+2025-07-23T19:19:26.696928,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:19:40.609936,0,Igor,find_cat,FIND_CAT,find_cat,0
+2025-07-23T19:25:43.886922,0,Igor,start,START,start,0
+2025-07-23T19:25:45.564915,0,Igor,"непонятная команда {'update_id': 78493676, 'message': {'photo': [], 'date': 1753287945, 'entities': [{'offset': 0, 'length': 9, 'type': 'bot_command'}], 'text': '/find_cat', 'channel_chat_created': False, 'delete_chat_photo': False, 'supergroup_chat_created': False, 'group_chat_created': False, 'new_chat_photo': [], 'new_chat_members': [], 'caption_entities': [], 'chat': {'username': 'specigor', 'first_name': 'Igor', 'id': 462609575, 'last_name': 'Pokotilo', 'type': 'private'}, 'message_id': 1058, 'from': {'username': 'specigor', 'language_code': 'ru', 'first_name': 'Igor', 'is_bot': False, 'id': 462609575, 'last_name': 'Pokotilo'}}}",START,unknown,
+2025-07-23T19:30:26.375667,0,Igor,start,START,start,0
+2025-07-23T19:30:28.391666,0,Igor,"непонятная команда {'message': {'photo': [], 'group_chat_created': False, 'supergroup_chat_created': False, 'caption_entities': [], 'channel_chat_created': False, 'new_chat_members': [], 'chat': {'id': 462609575, 'last_name': 'Pokotilo', 'type': 'private', 'username': 'specigor', 'first_name': 'Igor'}, 'date': 1753288228, 'text': '/find_cat', 'new_chat_photo': [], 'delete_chat_photo': False, 'message_id': 1063, 'entities': [{'type': 'bot_command', 'offset': 0, 'length': 9}], 'from': {'first_name': 'Igor', 'is_bot': False, 'id': 462609575, 'last_name': 'Pokotilo', 'language_code': 'ru', 'username': 'specigor'}}, 'update_id': 78493678}",START,unknown,
+2025-07-23T19:37:36.844157,0,Igor,start,START,start,0
+2025-07-23T19:37:39.378148,0,Igor,find_cat,FIND_CAT,command_find_cat,0
+2025-07-23T19:47:44.987421,0,Igor,start,START,start,0
+2025-07-23T19:47:47.089429,0,Igor,find_cat,FIND_CAT,command_find_cat,0
+2025-07-23T19:52:53.515421,0,Igor,start,START,start,0
+2025-07-23T19:52:55.806409,0,Igor,/find_cat,FIND_CAT_COM,command_find_cat,0
+2025-07-23T19:54:17.665926,0,Igor,start,START,start,0
+2025-07-23T19:54:19.533933,0,Igor,/find_cat,FIND_CAT_COM,command_find_cat,0
+2025-07-24T12:47:19.199177,0,Igor,start,START,start,0
+2025-07-24T12:47:21.913156,0,Igor,/find_cat,FIND_CAT,command_find_cat,0
+2025-07-24T12:48:58.199701,0,Igor,start,START,start,0
+2025-07-24T12:49:00.017702,0,Igor,/find_cat,FIND_CAT,command_find_cat,0
+2025-07-24T13:11:59.318441,0,Igor,start,START,start,0
+2025-07-24T13:12:01.672447,0,Igor,/find_cat,FIND_CAT,command_find_cat,0
+2025-07-24T13:24:36.880735,0,Igor,start,START,start,0
+2025-07-24T13:24:38.747731,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T13:29:15.347247,0,Igor,start,START,start,0
+2025-07-24T13:29:16.886253,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T13:31:24.805255,0,Igor,start,START,start,0
+2025-07-24T13:31:26.983260,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T13:36:28.931268,0,Igor,start,START,start,0
+2025-07-24T13:36:30.712254,0,Igor,"непонятная команда {'update_id': 78493727, 'message': {'entities': [{'offset': 0, 'length': 9, 'type': 'bot_command'}], 'new_chat_photo': [], 'delete_chat_photo': False, 'channel_chat_created': False, 'chat': {'type': 'private', 'first_name': 'Igor', 'username': 'specigor', 'id': 462609575, 'last_name': 'Pokotilo'}, 'text': '/find_cat', 'group_chat_created': False, 'supergroup_chat_created': False, 'photo': [], 'caption_entities': [], 'message_id': 1154, 'date': 1753353390, 'new_chat_members': [], 'from': {'is_bot': False, 'language_code': 'ru', 'first_name': 'Igor', 'username': 'specigor', 'id': 462609575, 'last_name': 'Pokotilo'}}}",START,unknown,
+2025-07-24T14:31:07.809468,0,Igor,start,START,start,0
+2025-07-24T14:31:09.581483,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T14:39:37.548522,0,Igor,start,START,start,0
+2025-07-24T14:39:39.304532,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T15:00:41.629907,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T15:07:41.037460,0,Igor,start,START,start,0
+2025-07-24T15:07:43.657444,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T15:11:30.228443,0,Igor,start,START,start,0
+2025-07-24T15:11:32.113439,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T21:31:57.916976,0,Igor,start,START,start,0
+2025-07-24T21:32:01.570986,0,Igor,"непонятная команда {'update_id': 78493747, 'message': {'delete_chat_photo': False, 'new_chat_members': [], 'group_chat_created': False, 'new_chat_photo': [], 'caption_entities': [], 'date': 1753381921, 'message_id': 1193, 'text': '/find_cat', 'entities': [{'offset': 0, 'length': 9, 'type': 'bot_command'}], 'channel_chat_created': False, 'chat': {'id': 462609575, 'first_name': 'Igor', 'username': 'specigor', 'type': 'private', 'last_name': 'Pokotilo'}, 'photo': [], 'supergroup_chat_created': False, 'from': {'first_name': 'Igor', 'is_bot': False, 'language_code': 'ru', 'username': 'specigor', 'last_name': 'Pokotilo', 'id': 462609575}}}",START,unknown,
+2025-07-24T21:43:01.035090,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T21:43:04.983087,0,Igor,"непонятная команда {'message': {'date': 1753382584, 'channel_chat_created': False, 'photo': [], 'caption_entities': [], 'chat': {'username': 'specigor', 'first_name': 'Igor', 'id': 462609575, 'type': 'private', 'last_name': 'Pokotilo'}, 'new_chat_members': [], 'entities': [{'offset': 0, 'length': 9, 'type': 'bot_command'}], 'text': '/find_cat', 'delete_chat_photo': False, 'new_chat_photo': [], 'message_id': 1201, 'group_chat_created': False, 'supergroup_chat_created': False, 'from': {'id': 462609575, 'username': 'specigor', 'language_code': 'ru', 'is_bot': False, 'last_name': 'Pokotilo', 'first_name': 'Igor'}}, 'update_id': 78493753}",START,unknown,
+2025-07-24T22:06:19.856413,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:08:13.089422,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:10:05.536422,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:10:08.935432,0,Igor,"непонятная команда {'message': {'new_chat_members': [], 'text': '/find_cat', 'entities': [{'type': 'bot_command', 'offset': 0, 'length': 9}], 'supergroup_chat_created': False, 'group_chat_created': False, 'delete_chat_photo': False, 'caption_entities': [], 'chat': {'id': 462609575, 'first_name': 'Igor', 'last_name': 'Pokotilo', 'username': 'specigor', 'type': 'private'}, 'date': 1753384208, 'new_chat_photo': [], 'message_id': 1212, 'channel_chat_created': False, 'photo': [], 'from': {'language_code': 'ru', 'id': 462609575, 'is_bot': False, 'username': 'specigor', 'first_name': 'Igor', 'last_name': 'Pokotilo'}}, 'update_id': 78493760}",START,unknown,
+2025-07-24T22:11:01.240413,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:11:02.940411,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:16:58.356736,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:17:01.157739,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:17:18.921743,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:21:00.835818,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:21:07.479805,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:21:37.542799,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:21:53.048818,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:27:13.316797,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:35:08.002818,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:35:14.964803,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-24T22:41:43.430798,0,Igor,start,START,start,0
+2025-07-24T22:41:47.020801,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-24T22:44:39.158800,0,Igor,start,START,start,0
+2025-07-24T22:44:44.026798,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-25T00:12:22.179750,0,Igor,start,START,start,0
+2025-07-25T00:12:27.161749,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-25T00:12:45.152750,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-25T00:14:01.248921,0,Igor,start,START,start,0
+2025-07-25T00:14:05.453940,0,Igor,обработка /find_cat,FIND_CAT_COM,button_handler,0
+2025-07-25T00:14:07.885922,0,Igor,ожидаем id/ключ,FIND_CAT,command_find_cat,0
+2025-07-25T12:46:56.949420,0,Igor,start,START,start,0
+2025-07-25T12:47:07.104429,0,Igor,обрабатываем 3,FIND_CAT,handle_cat_input,
+2025-07-25T12:47:07.183423,0,Igor,нашли по id,CHOOSE_CAT_ID,handle_cat_input,3
+2025-07-25T12:47:49.798420,0,Igor,обрабатываем 3,FIND_CAT,handle_cat_input,
+2025-07-25T12:47:49.888429,0,Igor,нашли по id,CHOOSE_CAT_ID,handle_cat_input,3
+2025-07-25T13:32:30.005881,0,Igor,start,START,start,0
+2025-07-25T13:32:34.731872,0,Igor,ожидаем id/ключ,FIND_CAT,find_cat_command,0
+2025-07-25T13:32:38.470875,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T13:32:38.643872,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T13:33:19.144871,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T13:33:19.231882,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T13:33:58.059875,0,Igor,обрабатываем фи,FIND_CAT,find_cat_text,
+2025-07-25T13:33:58.139881,0,Igor,нет категорий по фи,START,find_cat_text,
+2025-07-25T13:34:39.196872,0,Igor,ожидаем id/ключ,FIND_CAT,find_cat_command,0
+2025-07-25T13:34:47.847892,0,Igor,обрабатываем Филь,FIND_CAT,find_cat_text,
+2025-07-25T13:34:47.926871,0,Igor,нет категорий по Филь,START,find_cat_text,
+2025-07-25T13:52:29.359728,0,Igor,start,START,start,0
+2025-07-25T13:52:36.813747,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T13:52:37.054729,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T13:53:02.351727,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T13:53:02.456728,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T13:55:30.608731,0,Igor,start,START,start,0
+2025-07-25T13:55:37.390729,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T13:55:37.527727,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T13:56:09.526725,0,Igor,обрабатываем 4,FIND_CAT,find_cat_text,
+2025-07-25T13:56:09.680727,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,4
+2025-07-25T13:56:24.174728,0,Igor,обрабатываем 5,FIND_CAT,find_cat_text,
+2025-07-25T13:56:24.258725,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,5
+2025-07-25T14:01:08.810319,0,Igor,start,START,start,0
+2025-07-25T14:01:14.603320,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T14:01:14.686320,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T14:05:51.097320,0,Igor,start,START,start,0
+2025-07-25T14:06:00.062340,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-25T14:06:00.151323,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,1
+2025-07-25T14:06:13.527319,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-25T14:06:13.662320,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,1
+2025-07-25T14:06:19.937321,0,Igor,несколько категорий.,CHOOSE_CAT_ID,find_cat_one,1
+2025-07-25T14:06:39.890325,0,Igor,несколько категорий.,CHOOSE_CAT_ID,find_cat_one,1
+2025-07-25T14:07:05.333320,0,Igor,несколько категорий.,CHOOSE_CAT_ID,find_cat_one,1
+2025-07-25T17:21:09.553334,0,Igor,start,START,start,0
+2025-07-25T17:21:13.377335,0,Igor,ожидаем id/ключ,FIND_CAT,find_cat_command,0
+2025-07-25T17:21:27.559791,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-25T17:21:27.652782,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,1
+2025-07-25T18:06:41.146158,0,Igor,start,START,start,0
+2025-07-25T18:06:47.553167,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-25T18:06:47.652161,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,2
+2025-07-25T18:08:30.317159,0,Igor,start,START,start,0
+2025-07-25T18:08:37.228160,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-25T18:08:37.308162,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,2
+2025-07-25T18:08:55.459161,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T18:08:55.541168,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T18:53:00.196703,0,Igor,start,START,start,0
+2025-07-25T18:53:08.906696,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T18:53:08.983702,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T19:05:34.222220,0,Igor,start,START,start,0
+2025-07-25T19:05:36.800686,0,Igor,ожидаем id/ключ,FIND_CAT,find_cat_command,0
+2025-07-25T19:05:40.988825,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T19:05:41.076814,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T19:05:48.995055,0,Igor,ожидаем id/ключ,FIND_CAT,find_cat_command,0
+2025-07-25T19:05:54.656862,0,Igor,обрабатываем 4,FIND_CAT,find_cat_text,
+2025-07-25T19:05:54.822862,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,4
+2025-07-25T19:05:56.853862,0,Igor,несколько категорий.,CHOOSE_CAT_ID,find_cat_one,4
+2025-07-25T19:09:04.554840,0,Igor,start,START,start,0
+2025-07-25T19:09:10.254409,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T19:09:10.335414,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T19:09:14.390416,0,Igor,несколько категорий.,CHOOSE_CAT_ID,find_cat_one,3
+2025-07-25T19:09:29.466994,0,Igor,несколько категорий.,CHOOSE_CAT_ID,find_cat_one,4
+2025-07-25T19:59:21.595035,0,Igor,start,START,start,0
+2025-07-25T19:59:28.902975,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T19:59:29.030978,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,3
+2025-07-25T19:59:48.082116,0,Igor,обрабатываем 4,FIND_CAT,find_cat_text,
+2025-07-25T19:59:48.246115,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,4
+2025-07-25T20:00:00.765688,0,Igor,выбор из subcategory_4,CHOOSE_CAT_ID,find_cat_one,4
+2025-07-25T20:53:02.835753,0,Igor,start,START,start,0
+2025-07-25T20:53:10.966813,0,Igor,обрабатываем 4,FIND_CAT,find_cat_text,
+2025-07-25T20:53:11.157810,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,4
+2025-07-25T20:53:32.758380,0,Igor,обрабатываем 5,FIND_CAT,find_cat_text,
+2025-07-25T20:53:32.835379,0,Igor,нашли по id,CHOOSE_CAT_ID,find_cat_text,5
+2025-07-25T21:31:36.386409,0,Igor,start,START,start,0
+2025-07-25T21:31:41.537408,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T21:31:41.628408,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,3
+2025-07-25T21:32:55.270407,0,Igor,start,START,start,0
+2025-07-25T21:33:01.502412,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T21:33:01.687411,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,3
+2025-07-25T21:34:13.987418,0,Igor,обрабатываем 5,FIND_CAT,find_cat_text,
+2025-07-25T21:34:14.107417,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,5
+2025-07-25T21:34:25.603408,0,Igor,обрабатываем 5,FIND_CAT,find_cat_text,
+2025-07-25T21:34:25.690412,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,5
+2025-07-25T21:34:30.779407,0,Igor,выбор из near_5,CHOOSE_CAT_ID,find_cat_one,5
+2025-07-25T21:34:49.706417,0,Igor,выбор из near_4,CHOOSE_CAT_ID,find_cat_one,4
+2025-07-25T21:59:04.522413,0,Igor,start,START,start,0
+2025-07-25T21:59:10.950412,0,Igor,обрабатываем 5,FIND_CAT,find_cat_text,
+2025-07-25T21:59:11.121414,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,5
+2025-07-25T21:59:19.988408,0,Igor,выбор из near_5,CHOOSE_CAT_ID,find_cat_one,5
+2025-07-25T21:59:31.605410,0,Igor,выбор из near_4,CHOOSE_CAT_ID,find_cat_one,4
+2025-07-25T21:59:56.848408,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T21:59:56.982407,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,3
+2025-07-25T22:00:06.167414,0,Igor,выбор из near_3,CHOOSE_CAT_ID,find_cat_one,3
+2025-07-25T22:00:25.858410,0,Igor,выбор из near_3,CHOOSE_CAT_ID,find_cat_one,3
+2025-07-25T22:00:44.862406,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-25T22:00:45.022409,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,3
+2025-07-25T22:13:49.694410,0,Igor,start,START,start,0
+2025-07-25T22:13:55.727408,0,Igor,обрабатываем 5,FIND_CAT,find_cat_text,
+2025-07-25T22:13:55.879410,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,5
+2025-07-25T22:14:02.440421,0,Igor,выбор из near_5,CHOOSE_CAT_ID,find_cat_one,5
+2025-07-25T22:14:15.322410,0,Igor,обрабатываем 4,FIND_CAT,find_cat_text,
+2025-07-25T22:14:15.417406,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,4
+2025-07-25T22:14:26.972412,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-25T22:14:27.053414,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,1
+2025-07-25T22:14:40.727406,0,Igor,выбор из near_1,CHOOSE_CAT_ID,find_cat_one,1
+2025-07-25T22:37:05.953989,0,Igor,start,START,start,0
+2025-07-25T22:37:12.445982,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-25T22:37:12.537985,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,1
+2025-07-25T22:37:14.696983,0,Igor,выбор из subcategory_1,CHOOSE_CAT_ID,find_cat_one,1
+2025-07-25T22:37:26.392984,0,Igor,выбор из near_9,CHOOSE_CAT_ID,find_cat_one,9
+2025-07-25T22:37:44.670986,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-25T22:37:44.760982,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,2
+2025-07-25T22:37:47.803985,0,Igor,выбор из subcategory_2,CHOOSE_CAT_ID,find_cat_one,2
+2025-07-25T22:38:04.676984,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-25T22:38:04.810985,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,1
+2025-07-25T22:38:07.231984,0,Igor,выбор из subcategory_1,CHOOSE_CAT_ID,find_cat_one,1
+2025-07-25T22:38:13.706994,0,Igor,выбор из subcategory_2,CHOOSE_CAT_ID,find_cat_one,2
+2025-07-25T22:38:24.264990,0,Igor,выбор из subcategory_3,CHOOSE_CAT_ID,find_cat_one,3
+2025-07-26T13:52:48.895602,0,Igor,start,START,start,0
+2025-07-26T13:52:57.137601,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-26T13:52:57.223602,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,2
+2025-07-26T13:55:46.749622,0,Igor,start,START,start,0
+2025-07-26T13:55:52.013601,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-26T13:55:52.142602,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,2
+2025-07-26T13:56:07.764752,0,Igor,выбор из subcategory_2,CHOOSE_CAT_ID,find_cat_one,2
+2025-07-26T13:56:18.451747,0,Igor,выбор из subcategory_3,CHOOSE_CAT_ID,find_cat_one,3
+2025-07-26T14:26:18.349265,0,Igor,start,START,start,0
+2025-07-26T14:26:23.413268,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-26T14:26:50.148265,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-26T14:30:45.071267,0,Igor,start,START,start,0
+2025-07-26T14:30:49.992266,0,Igor,обрабатываем 3,FIND_CAT,find_cat_text,
+2025-07-26T14:30:50.104270,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,3
+2025-07-26T14:34:30.361878,0,Igor,start,START,start,0
+2025-07-26T14:34:35.641878,0,Igor,обрабатываем 4,FIND_CAT,find_cat_text,
+2025-07-26T14:34:35.714897,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,4
+2025-07-26T14:34:42.087879,0,Igor,выбор из near_4,CHOOSE_CAT_ID,find_cat_one,4
+2025-07-26T14:41:41.961881,0,Igor,start,START,start,0
+2025-07-26T14:41:46.671878,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-26T14:41:46.751888,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,2
+2025-07-26T14:41:53.145878,0,Igor,выбор из subcategory_2,CHOOSE_CAT_ID,find_cat_one,2
+2025-07-26T14:42:04.442882,0,Igor,выбор из subcategory_3,CHOOSE_CAT_ID,find_cat_one,3
+2025-07-26T14:42:12.156881,0,Igor,выбор из near_5,CHOOSE_CAT_ID,find_cat_one,5
+2025-07-26T17:26:41.934771,0,Igor,start,START,start,0
+2025-07-26T17:26:56.944773,0,Igor,обрабатываем 2,FIND_CAT,find_cat_text,
+2025-07-26T17:26:57.034770,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,2
+2025-07-26T17:27:55.377771,0,Igor,выбор из subcategory_2,CHOOSE_CAT_ID,find_cat_one,subcategory_2
+2025-07-26T17:30:15.269770,0,Igor,обрабатываем Справочники,FIND_CAT,find_cat_text,
+2025-07-26T17:30:15.387772,0,Igor,нет категорий по Справочники,START,find_cat_text,
+2025-07-30T08:02:41.139757,0,Igor,start,START,start,0
+2025-07-30T08:02:48.124776,0,Igor,обрабатываем 1,FIND_CAT,find_cat_text,
+2025-07-30T08:02:48.204765,0,Igor,нашли по id,FIND_CAT_ONE,find_cat_text,1
+2025-07-30T08:03:39.483765,0,Igor,выбор из near_1,CHOOSE_CAT_ID,find_cat_one,near_1
+2025-07-30T08:04:07.802766,0,Igor,выбор из near_13,CHOOSE_CAT_ID,find_cat_one,near_13
+2025-08-05T22:42:06.339055,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-05T22:43:50.911046,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-05T22:43:53.526045,FIND_CAT,FIND_CAT_ONE,{},{'cat_id': None},forward
+2025-08-05T22:48:33.020515,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-05T22:48:35.978525,FIND_CAT,FIND_CAT_ONE,{},{'cat_id': None},forward
+2025-08-06T11:04:40.453911,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T11:04:44.875926,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T11:04:50.652912,FIND_CAT,EDIT_CAT,{'name': ''},{},forward
+2025-08-06T11:26:23.968217,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T11:26:27.689214,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T11:26:32.169204,FIND_CAT,EDIT_CAT,{'name': ''},{},forward
+2025-08-06T11:33:43.456755,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T11:33:46.975736,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T11:33:49.419742,FIND_CAT,EDIT_CAT,{'name': ''},{},forward
+2025-08-06T11:35:27.747734,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T11:35:29.643734,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T11:35:32.196739,FIND_CAT,EDIT_CAT,{'name': ''},{},forward
+2025-08-06T12:03:21.096333,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:03:22.739334,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T12:03:25.265340,FIND_CAT,EDIT_CAT,{'name': ''},{},forward
+2025-08-06T12:17:11.896374,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:17:14.086364,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T12:17:16.427355,FIND_CAT,EDIT_CAT,"{'data': 'edit_22', 'name': ''}",{},forward
+2025-08-06T12:33:06.177068,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:33:09.993067,FIND_CAT,FIND_CAT_ONE,{'cat_id': 22},{},forward
+2025-08-06T12:33:12.629069,FIND_CAT,EDIT_CAT,"{'data': 'edit_22', 'name': ''}",{},forward
+2025-08-06T12:37:11.321066,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:37:21.130070,FIND_CAT,FIND_CAT_ONE,{'cat_id': 5},{},forward
+2025-08-06T12:37:25.019066,FIND_CAT,EDIT_CAT,"{'data': 'edit_5', 'name': ''}",{},forward
+2025-08-06T12:38:19.573096,FIND_CAT,EDIT_CAT,"{'data': 'addnear_5', 'name': ''}",{},forward
+2025-08-06T12:43:40.747069,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:43:45.055068,FIND_CAT,FIND_CAT_ONE,{'cat_id': 23},{},forward
+2025-08-06T12:43:54.754069,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:44:18.685069,FIND_CAT,FIND_CAT_ONE,{'cat_id': 4},{},forward
+2025-08-06T12:44:32.180088,FIND_CAT,EDIT_CAT,"{'data': 'addnear_4', 'name': ''}",{},forward
+2025-08-06T12:45:00.481068,FIND_CAT,DEL_CAT,{'cat_id': 24},{},forward
+2025-08-06T12:47:36.486276,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:47:40.168254,FIND_CAT,FIND_CAT_ONE,{'cat_id': 23},{},forward
+2025-08-06T12:47:55.032257,FIND_CAT,EDIT_CAT,"{'data': 'addsub_23', 'name': ''}",{},forward
+2025-08-06T12:48:39.180255,FIND_CAT,DEL_CAT,{'cat_id': 25},{},forward
+2025-08-06T12:49:13.480263,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T12:49:35.106273,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T12:56:11.585257,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T12:56:16.499255,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T13:17:20.749408,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T13:17:28.815416,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T14:41:04.485730,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T14:41:14.004732,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T15:05:30.856199,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T15:05:39.034200,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T15:08:39.071145,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T15:08:43.192145,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T15:08:45.623151,FIND,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T15:08:45.691151,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",{},forward
+2025-08-06T15:32:41.237991,ADD,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T15:32:49.331994,ADD,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T15:32:56.672008,ADD,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T15:32:56.744993,ADD,ADD_NAME,{'cat_id': 13},"{'name': None, 'comment': None}",forward
+2025-08-06T16:07:07.453908,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T16:13:14.515903,FIND_CAT,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T16:13:38.780903,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T16:13:45.503931,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T16:16:29.263912,FIND,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T16:16:29.333902,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",{},forward
+2025-08-06T16:18:38.500430,FIND,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T16:18:47.148437,FIND,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T16:18:50.043432,FIND,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T16:18:50.130439,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",{},forward
+2025-08-06T16:51:29.379363,ADD,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T16:51:34.514370,ADD,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T16:51:39.710365,ADD,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T16:51:39.783370,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",{},forward
+2025-08-06T16:55:37.252369,ADD,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T16:55:45.263371,ADD,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T16:55:48.550365,ADD,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T16:55:48.647365,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",{},forward
+2025-08-06T16:59:14.967409,ADD,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T16:59:21.227410,ADD,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T16:59:30.570426,ADD,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T16:59:30.670414,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",{},forward
+2025-08-06T17:08:42.797411,ADD,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T17:08:49.932409,ADD,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T17:08:52.141417,ADD,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T17:08:52.210409,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",{},forward
+2025-08-06T17:11:50.428412,ADD,FIND_CAT,{'keyword': ''},{},forward
+2025-08-06T17:11:53.948413,ADD,CHOOSE_CAT_ID,{},{},forward
+2025-08-06T17:11:56.551420,ADD,FIND_CAT_ONE,{'cat_id': 13},{},forward
+2025-08-06T17:11:56.660411,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",{},forward
+2025-08-06T17:25:38.789415,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T17:25:48.320413,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T17:25:50.496415,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T17:25:50.572411,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T17:47:48.882414,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T17:47:54.872412,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T17:47:57.146412,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T17:47:57.214409,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T17:53:41.911414,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T17:53:46.579411,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T17:53:51.229439,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T17:53:51.302423,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T17:59:26.808387,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T17:59:33.163385,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T17:59:36.354387,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T17:59:36.446386,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T19:49:24.401845,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T19:49:29.861841,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T19:49:32.607850,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T19:49:32.703847,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T19:57:34.860862,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T19:57:40.472870,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T19:57:44.143862,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T19:57:44.211008,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T19:57:56.739862,ADD,FIND_COMM_ONE,{'comm_id': None},forward
+2025-08-06T20:22:28.791942,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T20:22:37.000928,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T20:22:47.670923,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T20:22:47.769945,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T20:25:02.617480,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T20:25:13.380469,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T20:25:15.320474,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T20:25:15.449486,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T20:25:28.058471,ADD,FIND_COMM_ONE,{'comm_id': None},forward
+2025-08-06T21:34:34.161019,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T21:34:50.745018,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T21:34:56.843022,ADD,FIND_CAT_ONE,{'cat_id': 5},forward
+2025-08-06T21:34:56.930047,ADD,ADD_NAME,"{'cat_id': 5, 'name': '', 'comment': ''}",forward
+2025-08-06T21:35:09.536027,ADD,FIND_COMM_ONE,{'comm_id': None},forward
+2025-08-06T21:59:35.990295,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-06T21:59:44.337288,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-06T21:59:48.476293,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-06T21:59:48.557291,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-06T22:00:04.685290,ADD,FIND_COMM_ONE,{'comm_id': None},forward
+2025-08-07T12:45:47.647819,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-07T12:45:53.977822,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-07T12:45:56.927825,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T12:45:57.064817,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-07T12:50:36.000482,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-07T12:50:39.854481,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-07T12:50:42.377491,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T12:50:42.495480,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-07T13:09:48.180521,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-07T13:09:55.131516,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-07T13:09:57.540514,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T13:09:57.609516,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-07T13:10:14.918518,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-07T13:10:42.267513,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-07T13:10:55.139517,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-07T13:11:02.849515,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-07T13:11:05.781519,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T13:11:05.909514,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T13:12:35.663529,ADD,FIND_COMM_ONE,{'comm_id': None},forward
+2025-08-07T14:01:50.699118,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-07T14:02:09.435117,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-07T14:02:13.093117,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T14:02:13.163117,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T14:03:24.043118,ADD,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-07T14:04:06.884766,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-07T14:04:28.263791,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T14:04:28.368770,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T14:05:11.540786,ADD,FIND_COMM_ONE,{'comm_id': 2},forward
+2025-08-07T14:05:40.710794,EDIT,FIND_CAT,{'keyword': ''},forward
+2025-08-07T14:06:26.777786,EDIT,CHOOSE_CAT_ID,{},forward
+2025-08-07T14:06:30.207768,EDIT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T14:06:30.340782,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-07T15:46:23.923383,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-07T15:47:44.329389,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-07T15:47:54.709392,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T15:47:54.908386,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T15:48:41.829385,ADD,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-07T15:50:41.471386,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-07T15:50:54.162396,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-07T15:50:57.269384,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T15:50:57.353384,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T15:52:02.337413,ADD,FIND_COMM_ONE,{'comm_id': 2},forward
+2025-08-07T15:53:29.980387,ADD,FIND_CAT_ONE,{'cat_id': 22},forward
+2025-08-07T17:06:15.370112,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-07T17:06:39.814107,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-07T17:06:51.443108,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-07T17:06:51.510131,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T17:10:09.864111,ADD,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-07T17:10:22.975123,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-07T17:11:53.326105,ADD,FIND_COMM_ONE,{'comm_id': 2},forward
+2025-08-07T17:12:03.980111,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-07T17:12:11.447104,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-07T20:53:42.614544,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-07T20:53:52.186547,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:08:26.600292,EDIT,FIND_CAT,{'keyword': ''},forward
+2025-08-08T10:08:34.018292,EDIT,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:08:37.248294,EDIT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T10:08:37.328293,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:08:52.977289,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:23:23.904859,EDIT,FIND_CAT,{'keyword': ''},forward
+2025-08-08T10:23:31.218853,EDIT,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:23:33.350873,EDIT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T10:23:33.417856,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:23:43.091853,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:24:10.863863,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-08T10:24:15.374856,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:24:16.925857,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T10:24:16.994860,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T10:25:39.539854,ADD,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-08T10:25:45.604853,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T10:26:48.539853,ADD,FIND_COMM_ONE,{'comm_id': 2},forward
+2025-08-08T10:26:51.704852,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T10:28:55.511854,ADD,FIND_COMM_ONE,{'comm_id': 3},forward
+2025-08-08T10:29:00.477855,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-08T10:29:12.677856,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:29:14.301858,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T10:29:14.377856,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:29:21.638855,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-08T10:30:08.896853,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:30:23.305858,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-08T10:39:40.504858,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:40:13.932853,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:40:19.556874,FIND_CAT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T10:40:41.204854,FIND_CAT,LIST_COMM,{},forward
+2025-08-08T10:41:20.572852,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:41:45.025856,FIND_CAT,FIND_CAT_ONE,{'cat_id': 20},forward
+2025-08-08T10:41:58.909856,FIND_CAT,LIST_COMM,{},forward
+2025-08-08T10:42:23.594863,EDIT,FIND_CAT,{'keyword': ''},forward
+2025-08-08T10:42:27.737858,EDIT,CHOOSE_CAT_ID,{},forward
+2025-08-08T10:42:30.363874,EDIT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T10:42:30.470855,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:42:38.514854,EDIT,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-08T10:43:15.512857,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T10:43:25.724852,EDIT,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-08T11:00:03.249714,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-08T11:01:03.241014,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-08T11:01:54.542036,ADD,FIND_CAT_ONE,{'cat_id': 23},forward
+2025-08-08T11:01:54.608020,ADD,ADD_NAME,"{'cat_id': 23, 'name': '', 'comment': ''}",forward
+2025-08-08T12:04:47.551151,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T12:32:15.217459,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T12:32:35.288448,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-08T12:32:42.318439,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:38:15.856032,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:41:28.236062,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:41:31.231036,FIND_CAT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T14:44:16.479032,FIND_CAT,LIST_COMM,{},forward
+2025-08-08T14:44:47.547032,FIND_CAT,LIST_COMM,{},forward
+2025-08-08T14:44:59.611035,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:45:54.166037,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-08T14:45:58.353033,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:46:01.200045,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T14:46:01.313036,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T14:46:46.487036,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T14:48:51.445765,ADD,FIND_COMM_ONE,{'comm_id': 4},forward
+2025-08-08T14:49:09.673766,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:49:12.591764,FIND_CAT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T14:49:15.293765,FIND_CAT,LIST_COMM,{},forward
+2025-08-08T14:51:23.114767,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:51:45.790769,FIND_CAT,FIND_CAT_ONE,{'cat_id': 5},forward
+2025-08-08T14:51:50.754774,FIND_CAT,EDIT_CAT,"{'data': 'addnear_5', 'name': ''}",forward
+2025-08-08T14:53:12.726047,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T14:53:17.784065,FIND_CAT,FIND_CAT_ONE,{'cat_id': 4},forward
+2025-08-08T17:40:22.438143,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T17:40:24.706138,FIND_CAT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T17:40:32.167157,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T17:40:40.242157,FIND_CAT,FIND_CAT_ONE,{'cat_id': 19},forward
+2025-08-08T17:40:54.795138,FIND_CAT,EDIT_CAT,"{'data': 'addsub_19', 'name': ''}",forward
+2025-08-08T17:41:12.354158,FIND_CAT,DEL_CAT,{'cat_id': 27},forward
+2025-08-08T17:41:36.493138,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-08T17:41:40.734145,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-08T17:41:43.563146,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T17:41:43.635139,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-08T17:41:49.208143,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-08T18:30:44.360573,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:30:47.247578,FIND_CAT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T18:30:51.471590,FIND_CAT,LIST_CAT,{'cat_id': 13},forward
+2025-08-08T18:31:38.640571,FIND_CAT,LIST_COMM,{},forward
+2025-08-08T18:32:30.992577,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:32:38.571574,FIND_CAT,FIND_CAT_ONE,{'cat_id': 19},forward
+2025-08-08T18:32:41.365589,FIND_CAT,LIST_CAT,{'cat_id': 19},forward
+2025-08-08T18:32:53.211589,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:32:57.573571,FIND_CAT,FIND_CAT_ONE,{'cat_id': 27},forward
+2025-08-08T18:34:10.411579,FIND_CAT,EDIT_CAT,"{'data': 'addnear_27', 'name': ''}",forward
+2025-08-08T18:35:07.448579,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:35:16.200570,FIND_CAT,FIND_CAT_ONE,{'cat_id': 28},forward
+2025-08-08T18:35:55.167589,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-08T18:36:02.114573,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:36:05.897573,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T18:36:06.011589,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T18:36:29.876578,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:36:33.677579,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T18:36:33.747590,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T18:37:13.299570,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-08T18:37:22.329577,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-08T18:37:22.404579,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-08T18:39:07.917261,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-09T00:26:49.121961,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-09T00:27:58.460978,ADD,FIND_CAT_ONE,{'cat_id': 3},forward
+2025-08-09T00:27:58.588986,ADD,ADD_NAME,"{'cat_id': 3, 'name': '', 'comment': ''}",forward
+2025-08-09T21:27:27.056424,FIND_CAT,CHOOSE_CAT_ID,{},forward
+2025-08-09T21:28:34.196411,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-09T21:28:40.563405,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-09T22:42:25.698335,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-09T22:42:35.619321,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-09T22:45:07.065879,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-09T22:45:12.654888,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-09T22:45:19.663881,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-09T22:45:41.413881,FIND,LIST_CAT,{'cat_id': 13},forward
+2025-08-09T22:45:55.067890,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-09T22:46:12.440899,FIND,LIST_COMM,{},forward
+2025-08-09T22:46:32.708885,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-09T22:46:43.097885,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-09T22:47:38.770881,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-10T07:42:30.977730,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-10T07:42:45.437731,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-10T07:42:53.511729,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-10T07:43:29.820739,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-10T07:43:55.550729,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T00:28:45.624571,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-11T00:28:54.878577,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-11T00:28:57.325578,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T00:29:03.914599,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T00:29:13.179582,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T00:30:09.064576,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T00:30:33.572585,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T10:30:29.020716,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-11T10:30:36.511697,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-11T10:30:40.988696,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T10:30:48.362701,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T10:31:09.973687,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T10:39:07.884134,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-11T10:39:16.815129,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-11T10:39:18.809135,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T10:39:34.131143,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T10:39:41.111123,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T10:40:14.872144,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T10:40:29.307137,FIND,ADD_NAME,{},forward
+2025-08-11T11:08:19.084802,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-11T11:08:34.223797,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-11T11:08:36.870806,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T11:08:51.009800,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-11T11:09:29.096802,ADD,FIND_COMM_ONE,{'comm_id': 6},forward
+2025-08-11T11:11:02.589807,ADD,FIND_CAT_ONE,{'cat_id': 1},forward
+2025-08-11T11:13:24.753798,EDIT,FIND_CAT,{'keyword': ''},forward
+2025-08-11T11:13:31.060803,EDIT,CHOOSE_CAT_ID,{},forward
+2025-08-11T11:13:34.070817,EDIT,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T11:13:40.887813,EDIT,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T11:13:49.970796,EDIT,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T11:13:58.974796,EDIT,EDIT_COMM_COMM,{'comm_id': 1},forward
+2025-08-11T11:40:02.329089,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-11T11:40:11.019088,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-11T11:40:16.307084,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T11:40:18.869090,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-11T11:42:10.950084,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-11T11:43:56.660086,ADD,FIND_COMM_ONE,{'comm_id': 7},forward
+2025-08-11T11:59:00.812091,ADD,FIND_CAT,{'keyword': ''},forward
+2025-08-11T11:59:09.959104,ADD,CHOOSE_CAT_ID,{},forward
+2025-08-11T11:59:15.951081,ADD,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T11:59:19.133091,ADD,ADD_NAME,"{'cat_id': 13, 'name': '', 'comment': ''}",forward
+2025-08-11T12:11:40.926088,FIND,FIND_CAT,{'keyword': ''},forward
+2025-08-11T12:11:46.806083,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-11T12:11:48.783082,FIND,FIND_CAT_ONE,{'cat_id': 13},forward
+2025-08-11T12:11:51.825082,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T12:12:02.883091,FIND,CHOOSE_COMM_ID,{},forward
+2025-08-11T12:13:03.641084,FIND,FIND_COMM_ONE,{'comm_id': 8},forward
+2025-08-11T12:13:10.465087,FIND,EDIT_COMM_COMM,{'comm_id': 8},forward
+2025-08-11T12:14:11.207088,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T12:14:29.114081,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T12:14:36.420087,FIND,EDIT_COMM_NAME,{'comm_id': 1},forward
+2025-08-11T12:15:15.998093,FIND,FIND_COMM,"{'cat_id': 13, 'keyword': ''}",forward
+2025-08-11T12:15:28.854086,FIND,FIND_COMM_ONE,{'comm_id': 1},forward
+2025-08-11T12:15:34.484082,FIND,EDIT_COMM_COMM,{'comm_id': 1},forward
+2025-08-11T12:17:46.369439,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-11T12:17:51.611449,FIND,FIND_CAT_ONE,{'cat_id': 1},forward
+2025-08-11T12:17:53.287446,FIND,CHOOSE_CAT_ID,{},forward
+2025-08-11T15:56:30.502964,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T15:56:32.549964,FIND_CAT,1,FIND_CAT_ONE,1,choose_13,13,0,2
+2025-08-11T15:56:45.694959,FIND_CAT,1,LIST_CAT,1,listsub_13,13,0,3
+2025-08-11T15:57:01.703986,FIND_CAT,1,EDIT_CAT,2,Ищем категорию...: Укажите новое название категории:,0,0,3
+2025-08-11T15:57:40.681963,ADD,1,FIND_CAT,2,Добавляем рекомендацию...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T15:59:01.490978,ADD,1,FIND_CAT,2,Добавляем рекомендацию...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T15:59:08.270963,ADD,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T15:59:29.867958,ADD,1,FIND_CAT,2,Добавляем рекомендацию...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T15:59:34.823880,ADD,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T16:00:29.177881,ADD,1,FIND_CAT,2,Добавляем рекомендацию...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T16:00:34.636861,ADD,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T16:11:32.720694,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T16:19:11.846321,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T16:20:04.759317,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T16:21:18.893298,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T16:23:40.269299,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T16:25:24.955318,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T16:33:57.409317,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T19:27:31.247945,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T19:37:44.416921,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T19:38:10.991941,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T19:38:45.222798,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T19:39:16.464788,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T19:39:58.355798,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T20:23:44.145457,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T20:23:47.659459,FIND_CAT,1,FIND_CAT_ONE,1,choose_13,13,0,2
+2025-08-11T20:36:30.982678,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-11T20:36:37.975685,FIND_CAT,1,FIND_CAT_ONE,1,choose_13,13,0,2
+2025-08-11T20:36:43.889690,FIND_CAT,1,LIST_CAT,1,listsub_13,13,0,3
+2025-08-11T20:37:07.057330,FIND_CAT,1,FIND_CAT_ONE,1,choose_12,12,0,1
+2025-08-11T20:37:17.874381,FIND_CAT,1,EDIT_CAT,2,Ищем категорию...: Укажите новое название категории:,0,0,2
+2025-08-11T20:37:45.274477,FIND_CAT,1,EDIT_CAT,2,Ищем категорию...: Укажите новое название категории:,0,0,2
+2025-08-11T20:38:14.944676,FIND_CAT,1,LIST_CAT,1,listsub_31,31,0,2
+2025-08-11T20:38:28.483678,FIND_CAT,1,LIST_CAT,1,listsub_12,12,0,2
+2025-08-11T20:39:05.121668,ADD,1,FIND_CAT,2,Добавляем рекомендацию...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T20:39:10.906744,ADD,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T20:39:15.011726,ADD,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-11T20:39:18.937721,ADD,1,ADD_NAME,2,Добавляем рекомендацию...: Укажите теперь наименование рекомендации:,13,0,4
+2025-08-11T20:41:17.085315,EDIT,1,FIND_CAT,2,Редактируем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T20:41:24.132310,EDIT,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T20:41:27.787084,EDIT,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-11T20:41:45.947091,EDIT,1,FIND_CAT,2,Редактируем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T20:42:00.634105,EDIT,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T20:42:06.188102,EDIT,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-11T20:42:09.167122,EDIT,1,FIND_COMM,2,Редактируем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-11T20:43:05.620130,EDIT,1,FIND_COMM,2,Редактируем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-11T20:43:47.843379,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T20:44:01.986390,FIND,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T20:44:08.383396,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-11T20:44:17.427920,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-11T20:52:38.073448,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-11T20:52:45.803959,FIND,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-11T20:52:48.299964,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-11T20:52:50.911968,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-12T00:19:36.437857,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска,0,0,1
+2025-08-12T00:19:46.962867,FIND,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-12T00:19:50.004854,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-12T00:19:57.037865,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-12T00:20:04.743901,FIND,1,FIND_COMM_ONE,1,comment_1,13,1,5
+2025-08-12T00:21:45.815908,FIND_CAT,1,CHOOSE_CAT_ID,,,0,0,1
+2025-08-12T00:21:50.213901,FIND_CAT,1,FIND_CAT_ONE,1,choose_13,13,0,2
+2025-08-12T00:21:54.573930,FIND_CAT,1,LIST_CAT,1,listsub_13,13,0,3
+2025-08-12T00:22:11.421908,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-12T00:22:16.935901,FIND,1,FIND_CAT_ONE,1,choose_12,12,0,2
+2025-08-12T00:22:31.096900,FIND,1,CHOOSE_CAT_ID,,,0,0,3
+2025-08-12T00:22:47.742503,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-12T00:22:57.613505,FIND,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-12T00:23:00.473506,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-12T00:23:04.777501,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-12T00:23:13.864511,FIND,1,FIND_COMM_ONE,1,comment_1,13,1,5
+2025-08-12T00:23:22.519500,FIND,1,EDIT_COMM_NAME,2,Ищем рекомендации...: Измените название 12 стульев(id=1):,0,1,6
+2025-08-12T00:24:08.445617,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-12T00:24:19.742652,FIND,1,FIND_COMM_ONE,1,comment_1,13,1,5
+2025-08-12T00:24:24.716652,FIND,1,EDIT_COMM_COMM,2,"Ищем рекомендации...: Вот ваша рекомендация :
+100% стоит смотреть в любой компании друзей и близких. А если прочитать еще и книгу Ильфа и Петрова - удовольствие вдвойне!
+Измените рекомендацию:",0,1,6
+2025-08-12T00:25:16.643652,EDIT,1,FIND_CAT,2,Редактируем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1
+2025-08-12T00:25:33.193185,EDIT,1,CHOOSE_CAT_ID,,,0,0,2
+2025-08-12T00:25:37.215179,EDIT,1,FIND_CAT_ONE,1,choose_13,13,0,3
+2025-08-12T00:25:41.510181,EDIT,1,FIND_COMM,2,Редактируем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4
+2025-08-12T00:25:52.536180,EDIT,1,FIND_COMM_ONE,1,comment_1,13,1,5
+2025-08-12T00:26:16.010199,EDIT,1,CHOOSE_CAT_ID,,,0,0,4
+2025-08-12T00:26:20.184179,EDIT,1,FIND_CAT_ONE,1,choose_13,13,0,5
+2025-08-12T18:26:43.826063,FIND_CAT,1,FIND_CAT_ONE,1,choose_22,22,0,1,forward dict={'cat_id': 22}
+2025-08-12T21:58:21.987009,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1,forward dict={'keyword': ''}
+2025-08-12T21:58:36.323006,FIND,1,CHOOSE_CAT_ID,,,0,0,2,forward dict={}
+2025-08-12T21:58:40.158023,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3,forward dict={'cat_id': 13}
+2025-08-12T21:58:45.812015,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4,"forward dict={'cat_id': 13, 'keyword': ''}"
+2025-08-12T21:58:55.416035,FIND,1,FIND_COMM_ONE,1,comment_1,13,1,5,"forward dict={'cat_id': 13, 'comm_id': 1}"
+2025-08-12T21:59:20.302337,FIND,1,FIND_COMM,2,Ищем рекомендации...: Укажите теперь id или слово в рекомендации для подбора:,13,0,4,"back dict={'cat_id': 13, 'keyword': ''}"
+2025-08-12T21:59:20.302337,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3,back dict={'cat_id': 13}
+2025-08-12T21:59:33.815330,FIND,1,CHOOSE_CAT_ID,,,0,0,4,forward dict={}
+2025-08-12T21:59:38.579339,FIND,1,FIND_CAT_ONE,1,choose_13,13,0,3,back dict={'cat_id': 13}
+2025-08-12T21:59:42.190330,FIND,1,CHOOSE_CAT_ID,,,0,0,2,back dict={}
+2025-08-12T21:59:42.191329,FIND,1,FIND_CAT,2,Ищем рекомендации...: Введите id категории или слово для ее поиска:,0,0,1,back dict={'keyword': ''}

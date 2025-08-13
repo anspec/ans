@@ -1,0 +1,8 @@
+timestamp,user_id,username,city,status
+2025-07-02T15:26:59.850382,462609575,specigor,Ьосква,city_not_found
+2025-07-02T15:27:07.505997,462609575,specigor,Москва,success
+2025-07-02T15:27:34.002220,462609575,specigor,Москва,success
+2025-07-02T15:27:47.815225,462609575,specigor,Хельсинки,success
+2025-07-02T15:28:10.045546,462609575,specigor,Львов,success
+2025-07-02T15:28:42.204550,462609575,specigor,Донецк,success
+2025-07-02T15:29:09.289554,462609575,specigor,Стамбул,success
