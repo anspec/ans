@@ -390,13 +390,9 @@ def main():
         print("YANDEX_FOLDER_ID=ваш_folder_id")
         print("SBER_API_KEY=ваш_ключ_сбер")
         return  # Завершение работы при отсутствии ключей
-    else:
-        print(f"api_key={os.getenv("YANDEX_API_KEY")}")
-        print(f"folder_id={os.getenv("YANDEX_FOLDER_ID")}")
-        print(f"model={os.getenv("YANDEX_MODEL", "yandexgpt-lite")}")
 
     # Получение токена Telegram бота
-    TOKEN = os.getenv("TELEGRAM_BOT_TOKEN_YOOKASSA")
+    TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
     # Проверка наличия токена
     if not TOKEN:
         logger.error("Не задан TELEGRAM_BOT_TOKEN в .env файле!")

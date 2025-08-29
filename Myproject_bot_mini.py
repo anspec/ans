@@ -20,9 +20,6 @@ from telegram.ext import Updater, CommandHandler, CallbackQueryHandler, Callback
 
 import json
 
-from Myproject_bot_test3 import fname_cat
-#from parser.test20_wb_parsing import options
-
 DB_path = "comments.db"
 
 # Настройка системы логирования
